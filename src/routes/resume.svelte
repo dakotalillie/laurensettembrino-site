@@ -1,5 +1,4 @@
 <script>
-  import BlurredBackground from "../components/BlurredBackground.svelte";
   import ContentContainer from "../components/ContentContainer.svelte";
 </script>
 
@@ -39,7 +38,6 @@
   <title>About</title>
 </svelte:head>
 
-<BlurredBackground />
 <ContentContainer>
   <div class="flex flex-col items-center">
     <h1 class="text-4xl">Lauren Settembrino</h1>

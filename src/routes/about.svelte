@@ -1,5 +1,4 @@
 <script>
-  import BlurredBackground from "../components/BlurredBackground.svelte";
   import ContentContainer from "../components/ContentContainer.svelte";
 </script>
 
@@ -17,7 +16,6 @@
   <title>About</title>
 </svelte:head>
 
-<BlurredBackground />
 <ContentContainer>
   <img class="float-left mr-4" src="/img/headshot.jpg" alt="Headshot" />
   <div class="space-y-8">

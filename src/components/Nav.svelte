@@ -1,5 +1,6 @@
 <script lang="ts">
   import Logo from "./Logo.svelte";
+
   export let segment: string;
 
   const links = [
@@ -17,7 +18,6 @@
   }
 
   .logo {
-    position: absolute;
     right: 4rem;
     top: 1.5rem;
   }
@@ -31,13 +31,13 @@
   }
 
   @media (max-width: 1750px) {
-    .thing {
+    nav {
       @apply justify-start;
     }
   }
 
   @media (max-width: 1100px) {
-    .thing {
+    nav {
       @apply justify-center;
     }
 
@@ -46,15 +46,14 @@
       flex-direction: column;
       align-items: center;
       padding-top: 2rem;
-      position: relative;
       right: 0;
       top: 0;
     }
   }
 </style>
 
-<nav class="fixed w-full py-6 text-white">
-  <div class="px-16 mx-auto flex flex-row justify-start thing">
+<div class="w-full py-6 px-16 text-white flex flex-row justify-between">
+  <nav class="flex flex-row justify-start thing">
     <ul class="flex flex-row justify-center space-x-4">
       {#each links as link}
         <li>
@@ -69,7 +68,7 @@
 		     the blog data when we hover over the link or tap it on a touchscreen -->
       <!-- <li><a rel="prefetch" aria-current={segment === 'blog' ? 'page' : undefined} href="blog">blog</a></li> -->
     </ul>
-  </div>
+  </nav>
   <div class="logo">
     <Logo />
     <ul class="flex flex-row justify-center divide-x-2 divide-blue-500 mt-2">
@@ -78,4 +77,4 @@
       <li>Garbanzo</li>
     </ul>
   </div>
-</nav>
+</div>

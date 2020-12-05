@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Background from "../components/Background.svelte";
   import GlobalStyles from "../components/GlobalStyles.svelte";
   import Nav from "../components/Nav.svelte";
 
@@ -12,6 +13,7 @@
 </style>
 
 <GlobalStyles />
+<Background />
 <Nav {segment} />
 
 <main>
