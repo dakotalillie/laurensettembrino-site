@@ -6,32 +6,17 @@
 </script>
 
 <style>
-  .logo {
-    right: 4rem;
-    top: 1.5rem;
-  }
-
-  .logo li {
+  li {
     @apply px-4;
   }
 
-  .logo li:first-of-type {
+  li:first-of-type {
     @apply pl-0;
-  }
-
-  @media (max-width: 1100px) {
-    .logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 2rem;
-      right: 0;
-      top: 0;
-    }
   }
 </style>
 
-<div class="w-full py-6 px-16 text-white flex flex-row justify-between">
+<div
+  class="w-full py-6 px-16 text-white flex flex-col items-center justify-between space-y-8 xl:items-start xl:flex-row xl:space-y-0">
   <Nav {segment} />
   <div class="logo">
     <Logo />

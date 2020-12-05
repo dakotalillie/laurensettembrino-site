@@ -17,7 +17,7 @@
 </svelte:head>
 
 <ContentContainer>
-  <img class="float-left mr-4" src="/img/headshot.jpg" alt="Headshot" />
+  <img class="float-left mr-6" src="/img/headshot.jpg" alt="Headshot" />
   <div class="space-y-8">
     <h1 class="text-4xl">About</h1>
     <p>

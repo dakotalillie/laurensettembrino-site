@@ -14,18 +14,6 @@
   a[aria-current="page"] {
     @apply border-b-2 border-red-500;
   }
-
-  @media (max-width: 1750px) {
-    nav {
-      @apply justify-start;
-    }
-  }
-
-  @media (max-width: 1100px) {
-    nav {
-      @apply justify-center;
-    }
-  }
 </style>
 
 <nav class="flex flex-row justify-start thing">
