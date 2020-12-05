@@ -1,7 +1,7 @@
 <script lang="ts">
   import Background from "../components/Background.svelte";
   import GlobalStyles from "../components/GlobalStyles.svelte";
-  import Nav from "../components/Nav.svelte";
+  import Header from "../components/Header.svelte";
 
   export let segment: string;
 </script>
@@ -13,8 +13,8 @@
 </style>
 
 <GlobalStyles />
-<Background />
-<Nav {segment} />
+<Background {segment} />
+<Header {segment} />
 
 <main>
   <slot />

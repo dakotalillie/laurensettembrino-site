@@ -1,9 +1,7 @@
 <script lang="ts">
-  import { stores } from "@sapper/app";
+  export let segment: string;
 
-  const { page } = stores();
-
-  $: isBlurred = $page.path !== "/";
+  $: isBlurred = segment !== undefined;
 </script>
 
 <style>
