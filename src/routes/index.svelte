@@ -1,5 +1,13 @@
+<style>
+  .bg {
+    background: transparent url("/img/home-bg.jpg") no-repeat 25% fixed;
+    background-size: cover;
+    height: 100vh;
+  }
+</style>
+
 <svelte:head>
   <title>Lauren Settembrino</title>
 </svelte:head>
 
-<h1 class="text-4xl">Lauren's Fantastic Website</h1>
+<div class="bg text-white" />
