@@ -1,8 +1,25 @@
+<style>
+  svg {
+    width: min(100%, 20rem);
+  }
+
+  @screen lg {
+    svg {
+      width: 30rem;
+    }
+  }
+
+  @screen xl {
+    svg {
+      width: 36rem;
+    }
+  }
+</style>
+
 <svg
   class="fill-current"
   version="1.0"
   xmlns="http://www.w3.org/2000/svg"
-  width="36rem"
   viewBox="0 0 1920 302"
   preserveAspectRatio="xMidYMid meet">
   <g transform="translate(0.000000,302.000000) scale(0.100000,-0.100000)">

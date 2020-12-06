@@ -7,7 +7,7 @@
 <style>
   div {
     @apply h-screen fixed left-0 top-0 w-screen;
-    background: transparent url("/img/home-bg.jpg") no-repeat 25% fixed;
+    background: transparent url("/img/home-bg.jpg") no-repeat 30% fixed;
     background-size: cover;
     z-index: -1;
   }

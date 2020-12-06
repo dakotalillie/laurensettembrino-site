@@ -8,7 +8,7 @@
 
 <style>
   main {
-    @apply text-white min-h-screen;
+    @apply text-white mx-4 mb-4;
   }
 </style>
 

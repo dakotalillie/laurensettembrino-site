@@ -16,11 +16,11 @@
 </style>
 
 <div
-  class="w-full py-6 px-16 text-white flex flex-col items-center justify-between space-y-8 xl:items-start xl:flex-row xl:space-y-0">
+  class="w-full py-6 px-4 text-white flex flex-row-reverse items-start justify-between lg:flex-row xl:items-start xl:px-16">
   <Nav {segment} />
-  <div class="logo">
+  <div class="logo xl:mt-0">
     <Logo />
-    <ul class="flex flex-row justify-center divide-x-2 divide-blue-500 mt-2">
+    <ul class="text-xs flex flex-row justify-center divide-x-2 divide-blue-500 mt-2 lg:text-base">
       <li>The Best™️</li>
       <li>Boobaloo</li>
       <li>Garbanzo</li>

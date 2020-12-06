@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Hamburger from "./Hamburger.svelte";
+
   export let segment: string;
 
   const links = [
@@ -16,7 +18,7 @@
   }
 </style>
 
-<nav class="flex flex-row justify-start thing">
+<nav class="hidden flex-row justify-start thing lg:flex">
   <ul class="flex flex-row justify-center space-x-4">
     {#each links as link}
       <li>
@@ -32,3 +34,4 @@
     <!-- <li><a rel="prefetch" aria-current={segment === 'blog' ? 'page' : undefined} href="blog">blog</a></li> -->
   </ul>
 </nav>
+<Hamburger />
