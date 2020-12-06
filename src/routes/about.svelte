@@ -13,7 +13,7 @@
 </style>
 
 <svelte:head>
-  <title>About</title>
+  <title>Lauren Settembrino - About</title>
 </svelte:head>
 
 <ContentContainer>
