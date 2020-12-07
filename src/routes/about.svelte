@@ -4,11 +4,18 @@
 
 <style>
   img {
-    max-height: 32rem;
+    @apply w-full object-cover object-center;
   }
 
   p {
     @apply text-lg;
+  }
+
+  @screen sm {
+    img {
+      @apply float-left mr-6 w-auto;
+      max-height: 32rem;
+    }
   }
 </style>
 
@@ -17,8 +24,8 @@
 </svelte:head>
 
 <ContentContainer>
-  <img class="float-left mr-6" src="/img/headshot.jpg" alt="Headshot" />
-  <div class="space-y-8">
+  <img src="/img/headshot.jpg" alt="Headshot" />
+  <div class="space-y-8 mt-8 sm:mt-0">
     <h1 class="text-4xl">About</h1>
     <p>
       Lauren Settembrino is a New York-based dancer and wordsmith. She began her movement journey in central New Jersey
