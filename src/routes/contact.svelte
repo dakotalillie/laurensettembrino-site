@@ -1,13 +1,28 @@
 <script lang="ts">
   import ContentContainer from "../components/ContentContainer.svelte";
+  import Spinner from "../components/Spinner.svelte";
 
   let name = "";
   let email = "";
   let subject = "";
   let message = "";
+  let requestStatus = "";
 
   function handleSubmit(e: Event) {
     e.preventDefault();
+    requestStatus = "requested";
+
+    fetch("https://725k0xsdhd.execute-api.us-east-1.amazonaws.com/Prod/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, subject, message }),
+    })
+      .then(() => {
+        requestStatus = "succeeded";
+      })
+      .catch(() => {
+        requestStatus = "failed";
+      });
   }
 </script>
 
@@ -54,8 +69,20 @@
           <p>Message</p>
           <textarea bind:value={message} required />
         </label>
-        <div class="flex flex-row justify-end">
-          <button class="bg-blue-500 py-2 px-4 text-white hover:bg-blue-400" type="submit">Submit</button>
+        <div class="flex flex-row justify-end space-x-4">
+          {#if requestStatus === 'succeeded'}
+            <p class="flex items-center text-green-500">Your message has been sent!</p>
+          {:else if requestStatus === 'failed'}
+            <p class="flex items-center text-red-500">Oops! Something went wrong.</p>
+          {/if}
+          <button
+            class="py-2 px-4 bg-blue-500 hover:bg-blue-400 text-white"
+            disabled={requestStatus === 'requested'}
+            type="submit">
+            {#if requestStatus === 'requested'}
+              <Spinner />
+            {:else}Submit{/if}
+          </button>
         </div>
       </form>
     </div>
