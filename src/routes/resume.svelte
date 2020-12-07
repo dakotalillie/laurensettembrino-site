@@ -16,7 +16,7 @@
     content: "\2666";
   }
 
-  h2 {
+  h3 {
     @apply mt-8 font-bold text-2xl;
   }
 
@@ -38,9 +38,10 @@
   <title>Lauren Settembrino - Resume</title>
 </svelte:head>
 
-<ContentContainer>
+<ContentContainer page="Resume">
+  <div slot="actions"><button class="px-4 py-2 bg-blue-500 hover:bg-blue-400" type="button">Download</button></div>
   <div class="flex flex-col items-center">
-    <h1 class="text-4xl">Lauren Settembrino</h1>
+    <h2 class="text-4xl">Lauren Settembrino</h2>
     <div class="subheader">
       <span>lauren.settembrino@gmail.com</span>
       <span>she/her</span>
@@ -50,7 +51,7 @@
     </div>
   </div>
   <hr />
-  <h2>Professional Experience</h2>
+  <h3>Professional Experience</h3>
   <div class="resume-section">
     <div>
       <p><strong>America-Israel Cultural Foundation’s ICA Awards</strong> (2019)</p>
@@ -142,7 +143,7 @@
     </div>
   </div>
   <hr />
-  <h2>Training/Education</h2>
+  <h3>Training/Education</h3>
   <div class="resume-section">
     <div>
       <p><strong>Tisch School of the Arts, New York University</strong></p>

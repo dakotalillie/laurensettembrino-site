@@ -33,10 +33,9 @@
   <title>Lauren Settembrino - Contact</title>
 </svelte:head>
 
-<ContentContainer>
+<ContentContainer page="Contact">
   <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 ">
-    <div class="space-y-6">
-      <h1 class="text-4xl">Contact</h1>
+    <div class="space-y-6 lg:space-y-0">
       <img class="h-48 w-full object-cover lg:hidden" src="img/contact.jpg" alt="contact" />
       <form class="space-y-4" on:submit={handleSubmit}>
         <label>

@@ -28,7 +28,7 @@
   }
 
   onMount(() => {
-    if (getComputedStyle(section).gridTemplateRows !== "masonry") {
+    if (section && getComputedStyle(section).gridTemplateRows !== "masonry") {
       gap = parseFloat(getComputedStyle(section).gridRowGap);
       items = Array.from(section.childNodes).filter((c): c is HTMLElement => c.nodeType === ELEMENT_NODE_TYPE);
       nCols = 0;
@@ -69,7 +69,7 @@
   <title>Lauren Settembrino - Media</title>
 </svelte:head>
 
-<ContentContainer>
+<ContentContainer page="Media">
   <section bind:this={section}>
     {#each pictures as { src, alt }}<img data-src={src} {src} {alt} loading="lazy" />{/each}
   </section>

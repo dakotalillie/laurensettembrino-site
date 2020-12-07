@@ -23,10 +23,9 @@
   <title>Lauren Settembrino - About</title>
 </svelte:head>
 
-<ContentContainer>
+<ContentContainer page="About">
   <img src="/img/headshot.jpg" alt="Headshot" />
-  <div class="space-y-8 mt-8 sm:mt-0">
-    <h1 class="text-4xl">About</h1>
+  <div class="space-y-6">
     <p>
       Lauren Settembrino is a New York-based dancer and wordsmith. She began her movement journey in central New Jersey
       and went on to earn her BFA in Dance from NYU’s Tisch School of the Arts, where she graduated cum laude and was
