@@ -11,6 +11,12 @@
   button[aria-pressed="true"] {
     @apply bg-white text-black;
   }
+
+  @screen md {
+    button {
+      @apply py-2 px-4;
+    }
+  }
 </style>
 
 <div class="flex flex-row">

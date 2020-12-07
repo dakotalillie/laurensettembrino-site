@@ -54,8 +54,16 @@
       gap = parseFloat(getComputedStyle(section).gridRowGap);
       items = Array.from(section.childNodes).filter((c): c is HTMLElement => c.nodeType === ELEMENT_NODE_TYPE);
       nCols = 0;
-      setTimeout(layout, 1000);
+      if (document.readyState === "complete") {
+        setTimeout(layout, 200);
+      } else {
+        addEventListener("load", layout), false;
+      }
       addEventListener("resize", layout, false);
+      return () => {
+        removeEventListener("load", layout);
+        removeEventListener("resize", layout);
+      };
     }
   });
 </script>
@@ -71,6 +79,7 @@
     grid-gap: var(--space);
     padding: var(--space);
     grid-template-rows: masonry;
+    min-height: 100vh;
   }
 
   section > * {
@@ -79,7 +88,7 @@
 
   img {
     opacity: 1;
-    transition: opacity 1s;
+    transition: opacity 500ms;
   }
 
   img[data-src] {
