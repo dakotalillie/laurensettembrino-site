@@ -53,9 +53,11 @@
     {#each links as link}
       <li>
         <a
-          class="p-1 pt-0"
           aria-current={segment === link.segment ? 'page' : undefined}
-          href={link.href}>{link.label}</a>
+          class="p-1 pt-0"
+          href={link.href}
+          rel={link.href === 'media' ? 'prefetch' : undefined}>{link.label}
+        </a>
       </li>
     {/each}
 
