@@ -54,7 +54,7 @@
     if (section && getComputedStyle(section).gridTemplateRows !== "masonry") {
       gap = parseFloat(getComputedStyle(section).gridRowGap);
       items = Array.from(section.childNodes).filter((c): c is HTMLElement => {
-        return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "IMG";
+        return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
       });
       nCols = 0;
       if (document.readyState === "complete") {
@@ -90,11 +90,17 @@
   }
 
   img {
+    display: block;
+    width: 100%;
+  }
+
+  button {
+    align-self: start;
     opacity: 1;
     transition: opacity 500ms;
   }
 
-  img[data-measuring] {
+  button[data-measuring] {
     opacity: 0;
   }
 </style>
@@ -102,7 +108,7 @@
 <section bind:this={section}>
   {#each pictures as { src, alt }}
     <Modal let:open>
-      <img slot="trigger" data-measuring="true" {src} {alt} loading="lazy" on:click={open} />
+      <button slot="trigger" data-measuring="true" on:click={open}> <img {src} {alt} loading="lazy" /> </button>
       <div slot="content">Hi there!</div>
     </Modal>
   {/each}
