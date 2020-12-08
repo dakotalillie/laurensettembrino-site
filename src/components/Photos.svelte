@@ -45,7 +45,7 @@
           col.style.marginTop = `${prevFin + gap - currIni}px`;
         });
       }
-      items.forEach((c) => c.removeAttribute("data-src"));
+      items.forEach((c) => c.removeAttribute("data-measuring"));
     }
   }
 
@@ -91,11 +91,11 @@
     transition: opacity 500ms;
   }
 
-  img[data-src] {
+  img[data-measuring] {
     opacity: 0;
   }
 </style>
 
 <section bind:this={section}>
-  {#each pictures as { src, alt }}<img data-src={src} {src} {alt} loading="lazy" />{/each}
+  {#each pictures as { src, alt }}<img data-measuring="true" {src} {alt} loading="lazy" />{/each}
 </section>
