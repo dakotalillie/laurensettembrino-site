@@ -92,9 +92,14 @@
     width: var(--width);
   }
 
-  img {
+  img.thumbnail {
     display: block;
     width: 100%;
+  }
+
+  img.full {
+    max-width: 100%;
+    max-height: 75vh;
   }
 
   button {
@@ -115,14 +120,14 @@
         <picture>
           <source srcset={`img/${id}.webp`} type="image/webp" />
           <source srcset={`img/${id}.jpg`} type="image/jpeg" />
-          <img src={`img/${id}.jpg`} {alt} loading="lazy" />
+          <img class="thumbnail" src={`img/${id}.jpg`} {alt} loading="lazy" />
         </picture>
       </button>
       <div slot="content">
         <picture>
-          <source srcset={`img/${id}.webp`} type="image/webp" />
-          <source srcset={`img/${id}.jpg`} type="image/jpeg" />
-          <img src={`img/${id}.jpg`} {alt} />
+          <source srcset={`img/${id}-full.webp`} type="image/webp" />
+          <source srcset={`img/${id}-full.jpg`} type="image/jpeg" />
+          <img class="full" src={`img/${id}-full.jpg`} {alt} />
         </picture>
       </div>
     </Modal>

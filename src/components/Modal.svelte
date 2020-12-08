@@ -53,12 +53,12 @@
 
   .content-wrapper {
     @apply z-10 rounded bg-white overflow-hidden p-4 space-y-6;
-    max-width: 70vw;
+    max-width: min(80vw, 1200px);
   }
 
   .content {
-    @apply overflow-auto;
-    max-height: 50vh;
+    @apply overflow-hidden;
+    max-height: 80vh;
   }
 </style>
 
