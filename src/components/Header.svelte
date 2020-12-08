@@ -13,6 +13,12 @@
   li:first-of-type {
     @apply pl-0;
   }
+
+  @media (max-width: 350px) {
+    ul {
+      display: none;
+    }
+  }
 </style>
 
 <div
@@ -21,9 +27,9 @@
   <div class="logo xl:mt-0">
     <Logo />
     <ul class="text-xs flex flex-row justify-center divide-x-2 divide-blue-500 mt-2 lg:text-base">
-      <li>The Best™️</li>
-      <li>Boobaloo</li>
-      <li>Garbanzo</li>
+      <li>Dancer️</li>
+      <li>Choreographer</li>
+      <li>Performer</li>
     </ul>
   </div>
 </div>
