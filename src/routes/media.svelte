@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>Lauren Settembrino - Media</title>
+  <title>Media — Lauren Settembrino</title>
 </svelte:head>
 
 <ContentContainer page="Media">

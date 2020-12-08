@@ -45,7 +45,7 @@
 </style>
 
 <svelte:head>
-  <title>Lauren Settembrino - Contact</title>
+  <title>Contact — Lauren Settembrino</title>
 </svelte:head>
 
 <ContentContainer page="Contact">

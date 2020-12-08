@@ -35,7 +35,7 @@
 </style>
 
 <svelte:head>
-  <title>Lauren Settembrino - Resume</title>
+  <title>Resume — Lauren Settembrino</title>
 </svelte:head>
 
 <ContentContainer page="Resume">

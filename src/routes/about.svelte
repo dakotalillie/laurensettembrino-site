@@ -20,7 +20,7 @@
 </style>
 
 <svelte:head>
-  <title>Lauren Settembrino - About</title>
+  <title>About — Lauren Settembrino</title>
 </svelte:head>
 
 <ContentContainer page="About">
