@@ -95,5 +95,6 @@
       <source srcset="img/contact.jpg" type="image/jpeg" />
       <img class="hidden h-full w-full object-cover lg:block" src="img/contact.jpg" alt="Contact" />
     </picture>
+    <img class="" src="img/contact.jpg" alt="contact" />
   </div>
 </ContentContainer>

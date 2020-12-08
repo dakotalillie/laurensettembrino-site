@@ -27,7 +27,7 @@
   <picture>
     <source srcset="img/headshot.webp" type="image/webp" />
     <source srcset="img/headshot.jpg" type="image/jpeg" />
-    <img src="/img/headshot.jpg" alt="Headshot" />
+    <img src="img/headshot.jpg" alt="Headshot" />
   </picture>
   <div class="space-y-6">
     <p>

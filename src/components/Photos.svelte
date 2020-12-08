@@ -8,30 +8,30 @@
   let items: HTMLElement[];
 
   const pictures = [
-    { src: "img/1.webp", alt: "img1" },
-    { src: "img/2.webp", alt: "img2" },
-    { src: "img/3.webp", alt: "img3" },
-    { src: "img/4.webp", alt: "img4" },
-    { src: "img/5.webp", alt: "img5" },
-    { src: "img/6.webp", alt: "img6" },
-    { src: "img/7.webp", alt: "img7" },
-    { src: "img/8.webp", alt: "img8" },
-    { src: "img/9.webp", alt: "img9" },
-    { src: "img/10.webp", alt: "img10" },
-    { src: "img/11.webp", alt: "img11" },
-    { src: "img/12.webp", alt: "img12" },
-    { src: "img/13.webp", alt: "img13" },
-    { src: "img/14.webp", alt: "img14" },
-    { src: "img/15.webp", alt: "img15" },
-    { src: "img/16.webp", alt: "img16" },
-    { src: "img/17.webp", alt: "img17" },
-    { src: "img/18.webp", alt: "img18" },
-    { src: "img/19.webp", alt: "img19" },
-    { src: "img/20.webp", alt: "img20" },
-    { src: "img/21.webp", alt: "img21" },
-    { src: "img/22.webp", alt: "img22" },
-    { src: "img/23.webp", alt: "img23" },
-    { src: "img/24.webp", alt: "img24" },
+    { id: "1", alt: "img1" },
+    { id: "2", alt: "img2" },
+    { id: "3", alt: "img3" },
+    { id: "4", alt: "img4" },
+    { id: "5", alt: "img5" },
+    { id: "6", alt: "img6" },
+    { id: "7", alt: "img7" },
+    { id: "8", alt: "img8" },
+    { id: "9", alt: "img9" },
+    { id: "10", alt: "img10" },
+    { id: "11", alt: "img11" },
+    { id: "12", alt: "img12" },
+    { id: "13", alt: "img13" },
+    { id: "14", alt: "img14" },
+    { id: "15", alt: "img15" },
+    { id: "16", alt: "img16" },
+    { id: "17", alt: "img17" },
+    { id: "18", alt: "img18" },
+    { id: "19", alt: "img19" },
+    { id: "20", alt: "img20" },
+    { id: "21", alt: "img21" },
+    { id: "22", alt: "img22" },
+    { id: "23", alt: "img23" },
+    { id: "24", alt: "img24" },
   ];
   const ELEMENT_NODE_TYPE = 1;
 
@@ -108,10 +108,22 @@
 </style>
 
 <section bind:this={section}>
-  {#each pictures as { src, alt }}
+  {#each pictures as { id, alt }}
     <Modal let:open>
-      <button slot="trigger" data-measuring="true" on:click={open}> <img {src} {alt} loading="lazy" /> </button>
-      <div slot="content"><img {src} {alt} /></div>
+      <button slot="trigger" data-measuring="true" on:click={open}>
+        <picture>
+          <source srcset={`img/${id}.webp`} type="image/webp" />
+          <source srcset={`img/${id}.jpg`} type="image/jpeg" />
+          <img src={`img/${id}.jpg`} {alt} loading="lazy" />
+        </picture>
+      </button>
+      <div slot="content">
+        <picture>
+          <source srcset={`img/${id}.webp`} type="image/webp" />
+          <source srcset={`img/${id}.jpg`} type="image/jpeg" />
+          <img src={`img/${id}.jpg`} {alt} />
+        </picture>
+      </div>
     </Modal>
   {/each}
 </section>
