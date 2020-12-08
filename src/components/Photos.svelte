@@ -30,6 +30,8 @@
     { src: "img/20.webp", alt: "img20" },
     { src: "img/21.webp", alt: "img21" },
     { src: "img/22.webp", alt: "img22" },
+    { src: "img/23.webp", alt: "img23" },
+    { src: "img/24.webp", alt: "img24" },
   ];
   const ELEMENT_NODE_TYPE = 1;
 
@@ -109,7 +111,7 @@
   {#each pictures as { src, alt }}
     <Modal let:open>
       <button slot="trigger" data-measuring="true" on:click={open}> <img {src} {alt} loading="lazy" /> </button>
-      <div slot="content">Hi there!</div>
+      <div slot="content"><img {src} {alt} /></div>
     </Modal>
   {/each}
 </section>

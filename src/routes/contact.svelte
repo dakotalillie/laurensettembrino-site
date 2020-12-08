@@ -51,7 +51,11 @@
 <ContentContainer page="Contact">
   <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 ">
     <div class="space-y-6 lg:space-y-0">
-      <img class="h-48 w-full object-cover lg:hidden" src="img/contact.jpg" alt="contact" />
+      <picture>
+        <source srcset="img/contact.webp" type="image/webp" />
+        <source srcset="img/contact.jpg" type="image/jpeg" />
+        <img class="h-48 w-full object-cover lg:hidden" src="img/contact.jpg" alt="Contact" />
+      </picture>
       <form class="space-y-4" on:submit={handleSubmit}>
         <label>
           <p>Name</p>
@@ -86,6 +90,10 @@
         </div>
       </form>
     </div>
-    <img class="hidden h-full w-full object-cover lg:block" src="img/contact.jpg" alt="contact" />
+    <picture>
+      <source srcset="img/contact.webp" type="image/webp" />
+      <source srcset="img/contact.jpg" type="image/jpeg" />
+      <img class="hidden h-full w-full object-cover lg:block" src="img/contact.jpg" alt="Contact" />
+    </picture>
   </div>
 </ContentContainer>

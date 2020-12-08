@@ -24,7 +24,11 @@
 </svelte:head>
 
 <ContentContainer page="About">
-  <img src="/img/headshot.jpg" alt="Headshot" />
+  <picture>
+    <source srcset="img/headshot.webp" type="image/webp" />
+    <source srcset="img/headshot.jpg" type="image/jpeg" />
+    <img src="/img/headshot.jpg" alt="Headshot" />
+  </picture>
   <div class="space-y-6">
     <p>
       Lauren Settembrino is a New York-based dancer and wordsmith. She began her movement journey in central New Jersey
