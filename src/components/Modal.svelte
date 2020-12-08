@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { createFocusTrap } from "focus-trap";
+  import { enableBodyScroll, disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
   import type { FocusTrap } from "focus-trap";
 
   let modal: HTMLDialogElement;
@@ -18,10 +19,22 @@
     });
   });
 
+  onDestroy(() => {
+    clearAllBodyScrollLocks();
+  });
+
   $: if (isOpen && focusTrap) {
     focusTrap.activate();
+    disableBodyScroll(modal);
   } else if (!isOpen && focusTrap) {
     focusTrap.deactivate();
+    enableBodyScroll(modal);
+  }
+
+  function handleKeyDown(e: KeyboardEvent) {
+    if (e.key === "Escape") {
+      isOpen = false;
+    }
   }
 </script>
 
@@ -51,7 +64,7 @@
 
 <slot name="trigger" {open}><button on:click={open}>Open Modal</button></slot>
 
-<dialog aria-hidden={!isOpen} class="modal" class:is-open={isOpen} bind:this={modal}>
+<dialog aria-hidden={!isOpen} class="modal" class:is-open={isOpen} on:keydown={handleKeyDown} bind:this={modal}>
   <div class="backdrop" on:click={close} />
   <div class="content-wrapper">
     <header class="flex flex-row justify-end">
