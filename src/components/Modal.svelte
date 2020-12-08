@@ -1,13 +1,27 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import { createFocusTrap } from "focus-trap";
+  import type { FocusTrap } from "focus-trap";
+
+  let modal: HTMLDialogElement;
+  let button: HTMLButtonElement;
+  let focusTrap: FocusTrap;
   let isOpen = false;
   const open = () => (isOpen = true);
   const close = () => (isOpen = false);
 
-  function handleKeyDown(e: KeyboardEvent) {
-    e.stopPropagation();
-    if (e.key === "Escape") {
-      close();
-    }
+  onMount(() => {
+    focusTrap = createFocusTrap(modal, {
+      escapeDeactivates: false,
+      fallbackFocus: button,
+      preventScroll: true,
+    });
+  });
+
+  $: if (isOpen && focusTrap) {
+    focusTrap.activate();
+  } else if (!isOpen && focusTrap) {
+    focusTrap.deactivate();
   }
 </script>
 
@@ -16,12 +30,16 @@
     @apply fixed top-0 left-0 w-full h-screen flex justify-center items-center bg-transparent;
   }
 
+  .modal[aria-hidden="true"] {
+    @apply hidden;
+  }
+
   .backdrop {
     @apply absolute w-full h-full bg-black bg-opacity-40;
   }
 
   .content-wrapper {
-    @apply z-10 rounded bg-white overflow-hidden;
+    @apply z-10 rounded bg-white overflow-hidden p-4 space-y-6;
     max-width: 70vw;
   }
 
@@ -33,24 +51,14 @@
 
 <slot name="trigger" {open}><button on:click={open}>Open Modal</button></slot>
 
-{#if isOpen}
-  <dialog class="modal" on:keydown={handleKeyDown}>
-    <div class="backdrop" on:click={close} />
-    <div class="content-wrapper">
-      <slot name="header">
-        <div>
-          <h3>Your modal heading goes here</h3>
-        </div>
-      </slot>
-      <div class="content">
-        <slot name="content" />
-      </div>
-      <slot name="footer" {close}>
-        <div>
-          <h3>Your modal footer goes here</h3>
-          <button on:click={close}>close</button>
-        </div>
-      </slot>
+<dialog aria-hidden={!isOpen} class="modal" class:is-open={isOpen} bind:this={modal}>
+  <div class="backdrop" on:click={close} />
+  <div class="content-wrapper">
+    <header class="flex flex-row justify-end">
+      <button aria-label="Close modal" bind:this={button} on:click={close}>Close</button>
+    </header>
+    <div class="content">
+      <slot name="content" />
     </div>
-  </dialog>
-{/if}
+  </div>
+</dialog>

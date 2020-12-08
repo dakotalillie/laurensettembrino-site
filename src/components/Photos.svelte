@@ -53,7 +53,9 @@
   onMount(() => {
     if (section && getComputedStyle(section).gridTemplateRows !== "masonry") {
       gap = parseFloat(getComputedStyle(section).gridRowGap);
-      items = Array.from(section.childNodes).filter((c): c is HTMLElement => c.nodeType === ELEMENT_NODE_TYPE);
+      items = Array.from(section.childNodes).filter((c): c is HTMLElement => {
+        return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "IMG";
+      });
       nCols = 0;
       if (document.readyState === "complete") {
         setTimeout(layout, 200);
