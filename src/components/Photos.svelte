@@ -32,6 +32,7 @@
     { id: "22", alt: "img22" },
     { id: "23", alt: "img23" },
     { id: "24", alt: "img24" },
+    { id: "25", alt: "img25" },
   ];
   const ELEMENT_NODE_TYPE = 1;
 

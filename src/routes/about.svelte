@@ -4,7 +4,7 @@
 
 <style>
   img {
-    @apply w-full object-cover object-center;
+    @apply w-full object-cover object-center mb-6;
   }
 
   p {
@@ -13,7 +13,7 @@
 
   @screen sm {
     img {
-      @apply float-left mr-6 w-auto;
+      @apply float-left mr-6 mb-0 w-auto;
       max-height: 32rem;
     }
   }
