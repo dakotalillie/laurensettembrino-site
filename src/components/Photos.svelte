@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import Modal from "../components/Modal.svelte";
 
   let section: HTMLElement;
   let gap: number;
@@ -97,5 +98,10 @@
 </style>
 
 <section bind:this={section}>
-  {#each pictures as { src, alt }}<img data-measuring="true" {src} {alt} loading="lazy" />{/each}
+  {#each pictures as { src, alt }}
+    <Modal let:open>
+      <img slot="trigger" data-measuring="true" {src} {alt} loading="lazy" on:click={open} />
+      <div slot="content">Hi there!</div>
+    </Modal>
+  {/each}
 </section>
