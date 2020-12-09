@@ -75,9 +75,9 @@
         </label>
         <div class="flex flex-row justify-end space-x-4">
           {#if requestStatus === 'succeeded'}
-            <p class="flex items-center text-green-500">Your message has been sent!</p>
+            <p class="flex items-center text-green-600">Your message has been sent!</p>
           {:else if requestStatus === 'failed'}
-            <p class="flex items-center text-red-500">Oops! Something went wrong.</p>
+            <p class="flex items-center text-red-600">Oops! Something went wrong.</p>
           {/if}
           <button
             class="py-2 px-4 bg-blue-500 hover:bg-blue-400 text-white"
