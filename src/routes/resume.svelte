@@ -39,7 +39,11 @@
 </svelte:head>
 
 <ContentContainer page="Resume">
-  <div slot="actions"><button class="px-4 py-2 bg-blue-500 hover:bg-blue-400" type="button">Download</button></div>
+  <div slot="actions">
+    <a href="doc/LaurenSettembrinoDanceResume.pdf" download>
+      <button class="px-4 py-2 bg-blue-500 hover:bg-blue-400" type="button"> Download </button>
+    </a>
+  </div>
   <div class="flex flex-col items-center">
     <h2 class="text-4xl">Lauren Settembrino</h2>
     <div class="subheader">
