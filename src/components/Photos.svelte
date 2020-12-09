@@ -80,7 +80,7 @@
     loadedCount++;
   }
 
-  $: if (loadedCount && items.length && loadedCount === items.length) {
+  $: if (loadedCount && items?.length && loadedCount === items?.length) {
     layout();
     addEventListener("resize", layout, false);
   }
