@@ -24,7 +24,7 @@ jobs:
           mv __sapper__/export/* .
           rm -rf __sapper__
       - name: Create CNAME file
-        run: /
+        run: |
           echo "www.laurensettembrino.com" > CNAME
       - name: Configure git
         run: |
