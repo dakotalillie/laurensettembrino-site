@@ -70,6 +70,12 @@
         removeEventListener("load", layout);
         removeEventListener("resize", layout);
       };
+    } else {
+      Array.from(section.childNodes)
+        .filter((c): c is HTMLElement => {
+          return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
+        })
+        .forEach((c) => c.removeAttribute("data-measuring"));
     }
   });
 </script>
