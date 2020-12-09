@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import Modal from "../components/Modal.svelte";
 
   let section: HTMLElement;
   let gap: number;
   let nCols: number;
   let items: HTMLElement[];
+  let loadedCount = 0;
 
   const pictures = [
     { id: "1", alt: "img1" },
@@ -60,16 +61,6 @@
         return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
       });
       nCols = 0;
-      if (document.readyState === "complete") {
-        setTimeout(layout, 200);
-      } else {
-        addEventListener("load", layout), false;
-      }
-      addEventListener("resize", layout, false);
-      return () => {
-        removeEventListener("load", layout);
-        removeEventListener("resize", layout);
-      };
     } else {
       Array.from(section.childNodes)
         .filter((c): c is HTMLElement => {
@@ -78,6 +69,21 @@
         .forEach((c) => c.removeAttribute("data-measuring"));
     }
   });
+
+  onDestroy(() => {
+    if (typeof removeEventListener !== "undefined") {
+      removeEventListener("resize", layout);
+    }
+  });
+
+  function handleLoad() {
+    loadedCount++;
+  }
+
+  $: if (loadedCount && items.length && loadedCount === items.length) {
+    layout();
+    addEventListener("resize", layout, false);
+  }
 </script>
 
 <style>
@@ -126,7 +132,7 @@
         <picture>
           <source srcset={`img/${id}.webp`} type="image/webp" />
           <source srcset={`img/${id}.jpg`} type="image/jpeg" />
-          <img class="thumbnail" src={`img/${id}.jpg`} {alt} loading="lazy" />
+          <img class="thumbnail" src={`img/${id}.jpg`} {alt} on:load={handleLoad} />
         </picture>
       </button>
       <div slot="content">
