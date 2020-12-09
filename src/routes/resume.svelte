@@ -12,8 +12,12 @@
   }
 
   .subheader > span:not(:first-of-type):before {
-    @apply mr-4;
+    @apply mr-4 text-red-800;
     content: "\2666";
+  }
+
+  .content a {
+    @apply underline;
   }
 
   h3 {
@@ -21,7 +25,7 @@
   }
 
   hr {
-    @apply mt-8 border-black;
+    @apply mt-8 border-red-800;
   }
 
   ul {
@@ -29,7 +33,7 @@
   }
 
   li:before {
-    @apply mr-2;
+    @apply mr-2 text-red-800;
     content: "\2666";
   }
 </style>
@@ -44,12 +48,11 @@
       <button class="px-4 py-2 bg-blue-500 hover:bg-blue-400" type="button"> Download </button>
     </a>
   </div>
-  <div class="flex flex-col items-center">
+  <div class="content flex flex-col items-center">
     <h2 class="text-4xl">Lauren Settembrino</h2>
     <div class="subheader">
-      <span>lauren.settembrino@gmail.com</span>
+      <span><a href="mailto:lauren.settembrino@gmail.com">lauren.settembrino@gmail.com</a></span>
       <span>she/her</span>
-      <span>908.616.3768</span>
       <span>New York, NY</span>
       <span>5'4"</span>
     </div>
@@ -71,7 +74,7 @@
         <li>Angie Conte's <em>HUNTING YEAR, The Drowning Pine</em></li>
       </ul>
     </div>
-    <div>New York, NY</div>
+    <div>Venues throughout NYC</div>
   </div>
   <div class="resume-section">
     <div>
@@ -81,7 +84,7 @@
         <li>Brenda Neville's <em>Exposed, Elements (pointe), 53 Movements</em></li>
       </ul>
     </div>
-    <div>New York, NY</div>
+    <div>Milwaukee, WI; Venues throughout NYC</div>
   </div>
   <div class="resume-section">
     <div class="w-full">
