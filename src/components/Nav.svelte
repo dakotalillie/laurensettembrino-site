@@ -67,7 +67,7 @@
   </ul>
 </nav>
 <div class="relative">
-  <button class="ml-4" bind:this={hamburgerButton} on:click={toggleNav}>
+  <button aria-label="Toggle mobile nav menu" class="ml-4" bind:this={hamburgerButton} on:click={toggleNav}>
     <Hamburger />
   </button>
   {#if showMobileNav}

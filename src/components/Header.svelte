@@ -21,7 +21,7 @@
   }
 </style>
 
-<div
+<header
   class="w-full py-6 px-4 text-white flex flex-row-reverse items-start justify-between lg:flex-row xl:items-start xl:px-16">
   <Nav {segment} />
   <div class="logo xl:mt-0">
@@ -32,4 +32,4 @@
       <li>Performer</li>
     </ul>
   </div>
-</div>
+</header>
