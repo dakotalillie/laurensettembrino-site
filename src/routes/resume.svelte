@@ -12,7 +12,7 @@
   }
 
   .subheader > span:not(:first-of-type):before {
-    @apply mr-4 text-red-800;
+    @apply mr-4 text-red-700;
     content: "\2666";
   }
 
@@ -25,7 +25,7 @@
   }
 
   hr {
-    @apply mt-8 border-red-800;
+    @apply mt-8 border-red-700;
   }
 
   ul {
@@ -33,7 +33,7 @@
   }
 
   li:before {
-    @apply mr-2 text-red-800;
+    @apply mr-2 text-red-700;
     content: "\2666";
   }
 </style>
@@ -45,7 +45,7 @@
 <ContentContainer page="Resume">
   <div slot="actions">
     <a href="doc/LaurenSettembrinoDanceResume.pdf" download>
-      <button class="px-4 py-2 bg-blue-500 hover:bg-blue-400" type="button"> Download </button>
+      <button class="px-4 py-2 bg-blue-600 hover:bg-blue-500" type="button"> Download </button>
     </a>
   </div>
   <div class="content flex flex-col items-center">
