@@ -42,7 +42,7 @@
     }
   }
 
-  @screen xl {
+  @media (min-width: 1680px) {
     header {
       @apply px-16;
     }
