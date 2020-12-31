@@ -52,7 +52,9 @@
 <header>
   <Nav {segment} />
   <div class="logo xl:mt-0">
-    <Logo />
+    <a aria-label="Lauren Settembrino logo" href=".">
+      <Logo />
+    </a>
   </div>
   <ul class="text-xs flex flex-row justify-center divide-x-2 divide-red-700 mt-2 lg:text-base">
     <li>Dancer️</li>
