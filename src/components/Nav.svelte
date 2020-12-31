@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { slide } from "svelte/transition";
   import Hamburger from "./Hamburger.svelte";
 
   export let segment: string;
@@ -73,7 +72,7 @@
     <Hamburger />
   </button>
   {#if showMobileNav}
-    <ul class="mobile-nav" in:slide={{ duration: 250 }}>
+    <ul class="mobile-nav">
       {#each links as link}
         <li>
           <a class="p-1" aria-current={segment === link.segment ? 'page' : undefined} href={link.href}>{link.label}</a>

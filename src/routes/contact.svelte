@@ -49,7 +49,7 @@
 </svelte:head>
 
 <ContentContainer page="Contact">
-  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 ">
+  <div class="grid grid-cols-1 lg:gap-8 lg:grid-cols-2 ">
     <div class="space-y-6 lg:space-y-0">
       <picture>
         <source srcset="img/contact.webp" type="image/webp" />
