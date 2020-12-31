@@ -46,17 +46,22 @@
   blockquote .attribution {
     @apply whitespace-nowrap;
   }
+
+  .reel {
+    @apply w-full mx-auto;
+    max-width: 800px;
+  }
 </style>
 
 <div class="space-y-16">
   <section>
-    <div class="w-full flex flex-row justify-center">
+    <div class="reel">
       <YouTubeEmbed isReel src="https://www.youtube.com/embed/bnrbjHcfaFM" title="Lauren Settembrino Dance Reel" />
     </div>
   </section>
   <section class="space-y-4">
     <h2>Dance Bites</h2>
-    <div class="grid grid-cols-2 gap-2">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2 ">
       <YouTubeEmbed src="https://www.youtube.com/embed/q5vMiz7ZPbg" title="Subway dance" />
       <YouTubeEmbed src="https://www.youtube.com/embed/iCOW7laCRac" title="Living room fun" />
       <YouTubeEmbed src="https://www.youtube.com/embed/mUWEIdx9I2c" title="Golden boy peanuts" />
@@ -65,7 +70,7 @@
   </section>
   <section class="space-y-4">
     <h2>Choreography</h2>
-    <div class="grid grid-cols-2 gap-x-2 gap-y-8">
+    <div class="grid grid-cols-1 gap-x-2 gap-y-8 md:grid-cols-2">
       <YouTubeEmbed hasCaption src="https://www.youtube.com/embed/4kDathC_yzM" title="B-Y">
         <h3>B-Y</h3>
         <p>Choreography and Performance: Lauren Settembrino</p>

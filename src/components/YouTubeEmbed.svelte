@@ -8,13 +8,48 @@
 </script>
 
 <style>
-  div {
-    height: 350px;
+  div,
+  div.reel {
+    height: 204px;
   }
 
-  div.reel {
-    height: 420px;
-    width: 745px;
+  @screen sm {
+    div,
+    div.reel {
+      height: 342px;
+    }
+  }
+
+  @screen md {
+    div {
+      height: 185px;
+    }
+
+    div.reel {
+      height: 396px;
+    }
+  }
+
+  @screen lg {
+    div {
+      height: 240px;
+    }
+
+    div.reel {
+      height: 450px;
+    }
+  }
+
+  @screen xl {
+    div {
+      height: 320px;
+    }
+  }
+
+  @screen 2xl {
+    div {
+      height: 394px;
+    }
   }
 </style>
 
