@@ -6,6 +6,16 @@
 </script>
 
 <style>
+  header {
+    @apply w-full py-6 px-4 text-white grid;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  ul {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
   li {
     @apply px-4;
   }
@@ -19,17 +29,34 @@
       display: none;
     }
   }
+
+  @screen lg {
+    .logo {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    ul {
+      grid-column: 3;
+      grid-row: 2;
+    }
+  }
+
+  @screen xl {
+    header {
+      @apply px-16;
+    }
+  }
 </style>
 
-<header
-  class="w-full py-6 px-4 text-white flex flex-row-reverse items-start justify-between lg:flex-row xl:items-start xl:px-16">
+<header>
   <Nav {segment} />
   <div class="logo xl:mt-0">
     <Logo />
-    <ul class="text-xs flex flex-row justify-center divide-x-2 divide-red-700 mt-2 lg:text-base">
-      <li>Dancer️</li>
-      <li>Choreographer</li>
-      <li>Performer</li>
-    </ul>
   </div>
+  <ul class="text-xs flex flex-row justify-center divide-x-2 divide-red-700 mt-2 lg:text-base">
+    <li>Dancer️</li>
+    <li>Choreographer</li>
+    <li>Performer</li>
+  </ul>
 </header>

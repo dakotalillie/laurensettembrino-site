@@ -33,8 +33,14 @@
     @apply border-b-2 border-red-700;
   }
 
+  .mobile-nav-container {
+    @apply flex items-center relative;
+    grid-row: 1;
+    grid-column: 3;
+  }
+
   .mobile-nav {
-    @apply absolute bg-black py-2 text-center right-0;
+    @apply absolute bg-black py-2 text-center right-0 top-full;
   }
 
   .mobile-nav li {
@@ -60,13 +66,9 @@
         </a>
       </li>
     {/each}
-
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-        the blog data when we hover over the link or tap it on a touchscreen -->
-    <!-- <li><a rel="prefetch" aria-current={segment === 'blog' ? 'page' : undefined} href="blog">blog</a></li> -->
   </ul>
 </nav>
-<div class="relative">
+<div class="mobile-nav-container">
   <button aria-label="Toggle mobile nav menu" class="ml-4" bind:this={hamburgerButton} on:click={toggleNav}>
     <Hamburger />
   </button>
