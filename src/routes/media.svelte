@@ -1,10 +1,19 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import ContentContainer from "../components/ContentContainer.svelte";
   import MediaToggle from "../components/MediaToggle.svelte";
   import Photos from "../components/Photos.svelte";
+  import Videos from "../components/Videos.svelte";
 
-  let activeView: "photos" | "videos" = "photos";
-  const setActiveView = (newActiveView: "photos" | "videos") => (activeView = newActiveView);
+  let activeView: "photos" | "videos" | undefined;
+  const setActiveView = (newActiveView: "photos" | "videos") => {
+    activeView = newActiveView;
+    window.location.hash = `#${newActiveView}`;
+  };
+
+  onMount(() => {
+    setActiveView(window.location.hash === "#videos" ? "videos" : "photos");
+  });
 </script>
 
 <svelte:head>
@@ -18,6 +27,6 @@
   {#if activeView === 'photos'}
     <Photos />
   {:else if activeView === 'videos'}
-    <h2>Videos!</h2>
+    <Videos />
   {/if}
 </ContentContainer>

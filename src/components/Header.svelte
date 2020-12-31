@@ -26,7 +26,7 @@
   <Nav {segment} />
   <div class="logo xl:mt-0">
     <Logo />
-    <ul class="text-xs flex flex-row justify-center divide-x-2 divide-blue-500 mt-2 lg:text-base">
+    <ul class="text-xs flex flex-row justify-center divide-x-2 divide-red-700 mt-2 lg:text-base">
       <li>Dancer️</li>
       <li>Choreographer</li>
       <li>Performer</li>

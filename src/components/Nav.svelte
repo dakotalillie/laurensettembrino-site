@@ -30,7 +30,7 @@
 
 <style>
   a[aria-current="page"] {
-    @apply border-b-2 border-red-500;
+    @apply border-b-2 border-red-700;
   }
 
   .mobile-nav {
