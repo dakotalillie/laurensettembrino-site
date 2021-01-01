@@ -2,13 +2,6 @@
   import { onMount, onDestroy } from "svelte";
   import Modal from "../components/Modal.svelte";
 
-  const MAX_COLUMN_WIDTH = 500;
-
-  let section: HTMLElement;
-  let gap: number;
-  let items: HTMLElement[];
-  let loadedCount = 0;
-
   const pictures = [
     {
       id: "1",
@@ -136,7 +129,14 @@
       caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
     },
   ];
+
+  const MAX_COLUMN_WIDTH = 500;
   const ELEMENT_NODE_TYPE = 1;
+
+  let section: HTMLElement;
+  let gap: number;
+  let items: HTMLElement[];
+  let loadedCount = 0;
 
   function layout() {
     const numberOfColumns = Math.ceil(section.clientWidth / MAX_COLUMN_WIDTH);

@@ -2,6 +2,7 @@
   import { onDestroy, tick } from "svelte";
   import { createFocusTrap } from "focus-trap";
   import { enableBodyScroll, disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+  import CloseIcon from "./CloseIcon.svelte";
   import type { FocusTrap } from "focus-trap";
 
   let modal: HTMLDialogElement;
@@ -54,13 +55,19 @@
   }
 
   .content-wrapper {
-    @apply z-10 rounded bg-white overflow-hidden p-4 space-y-6;
+    @apply z-10 rounded bg-gray-300 overflow-hidden p-2 space-y-2;
     max-width: min(80vw, 1200px);
   }
 
   .content {
     @apply overflow-hidden;
     max-height: 80vh;
+  }
+
+  @screen md {
+    .content-wrapper {
+      @apply p-4 space-y-4;
+    }
   }
 </style>
 
@@ -71,7 +78,7 @@
     <div class="backdrop" on:click={close} />
     <div class="content-wrapper">
       <header class="flex flex-row justify-end">
-        <button aria-label="Close modal" bind:this={button} on:click={close}>Close</button>
+        <button aria-label="Close modal" bind:this={button} on:click={close}><CloseIcon /></button>
       </header>
       <div class="content">
         <slot name="content" />
