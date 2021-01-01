@@ -2,9 +2,10 @@
   import { onMount, onDestroy } from "svelte";
   import Modal from "../components/Modal.svelte";
 
+  const MAX_COLUMN_WIDTH = 500;
+
   let section: HTMLElement;
   let gap: number;
-  let nCols: number;
   let items: HTMLElement[];
   let loadedCount = 0;
 
@@ -38,37 +39,29 @@
   const ELEMENT_NODE_TYPE = 1;
 
   function layout() {
-    const newNCols = getComputedStyle(section).gridTemplateColumns.split(" ").length;
+    const numberOfColumns = Math.ceil(section.clientWidth / MAX_COLUMN_WIDTH);
+    const allGapsWidth = (numberOfColumns - 1) * gap;
+    const width = (section.clientWidth - allGapsWidth) / numberOfColumns;
 
-    if (nCols !== newNCols) {
-      nCols = newNCols;
-      items.forEach((c) => c.style.removeProperty("margin-top"));
-      if (nCols > 1) {
-        items.slice(nCols).forEach((col, i) => {
-          const prevFin = items[i].getBoundingClientRect().bottom; // bottom edge of item above
-          const currIni = col.getBoundingClientRect().top; // top edge of current item
-          col.style.marginTop = `${prevFin + gap - currIni}px`;
-        });
-      }
-      items.forEach((c) => c.removeAttribute("data-measuring"));
+    section.style.gridTemplateColumns = `repeat(${numberOfColumns}, ${width}px)`;
+    items.forEach((c) => c.style.removeProperty("margin-top"));
+
+    if (numberOfColumns > 1) {
+      items.slice(numberOfColumns).forEach((col, i) => {
+        const prevFin = items[i].getBoundingClientRect().bottom; // bottom edge of item above
+        const currIni = col.getBoundingClientRect().top; // top edge of current item
+        col.style.marginTop = `${prevFin + gap - currIni}px`;
+      });
     }
+
+    items.forEach((c) => c.removeAttribute("data-measuring"));
   }
 
   onMount(() => {
-    console.log(section.clientWidth);
-    if (getComputedStyle(section).gridTemplateRows !== "masonry") {
-      gap = parseFloat(getComputedStyle(section).gridRowGap);
-      items = Array.from(section.childNodes).filter((c): c is HTMLElement => {
-        return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
-      });
-      nCols = 0;
-    } else {
-      Array.from(section.childNodes)
-        .filter((c): c is HTMLElement => {
-          return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
-        })
-        .forEach((c) => c.removeAttribute("data-measuring"));
-    }
+    gap = parseFloat(getComputedStyle(section).gridRowGap);
+    items = Array.from(section.childNodes).filter((c): c is HTMLElement => {
+      return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
+    });
   });
 
   onDestroy(() => {
@@ -90,18 +83,11 @@
 <style>
   section {
     --space: 0.5em;
-    --width: min(25em, 100%);
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, var(--width));
     justify-content: center;
     grid-gap: var(--space);
-    grid-template-rows: masonry;
     min-height: 100vh;
-  }
-
-  section > * {
-    width: var(--width);
   }
 
   img.thumbnail {
