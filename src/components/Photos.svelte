@@ -4,9 +4,9 @@
 
   const pictures = [
     {
-      id: "1",
-      alt: "Lauren Settembrino with leg held side against pink background",
-      caption: "Photo Credit: Ella Bromblin / <em>Together, together</em> by Ori Flomin",
+      id: "18",
+      alt: "Lauren Settembrino in green shirt hinges backward toward floor",
+      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
     },
     {
       id: "2",
@@ -14,29 +14,14 @@
       caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
     },
     {
-      id: "3",
-      alt: "Lauren Settembrino with leg in passe surrounded by large plastic sheets",
-      caption: "Photo Credit: Ella Bromblin / <em>Layers</em> by Janae Bonnen, Angie Lu, Evita Zacharioglou",
+      id: "21",
+      alt: "Lauren Settembrino, in pink, white, and gray leotard, performs layout with leg in attitude front",
+      caption: "Photo Credit: Alex Tenreiro Theis",
     },
     {
-      id: "4",
-      alt: "Lauren Settembrino in orange leotard held by partner in arabesque press lift",
-      caption: "Neville Dance Theatre rehearsal",
-    },
-    {
-      id: "18",
-      alt: "Lauren Settembrino in green shirt hinges backward toward floor",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
-    },
-    {
-      id: "7",
-      alt: "Lauren Settembrino in peach skirt arches back during outdoor performance",
-      caption: "Photo Credit: Ori Highbloom / <em>Together, together</em> by Ori Flomin",
-    },
-    {
-      id: "8",
-      alt: "Profile of Lauren Settembrino curling fingers near mouth while dancing",
-      caption: "Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal",
+      id: "1",
+      alt: "Lauren Settembrino with leg held side against pink background",
+      caption: "Photo Credit: Ella Bromblin / <em>Together, together</em> by Ori Flomin",
     },
     {
       id: "9",
@@ -44,9 +29,24 @@
       caption: "Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal",
     },
     {
-      id: "10",
-      alt: "Black and white photo of Lauren Settembrino looking away with one arm extended",
-      caption: "Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal",
+      id: "14",
+      alt: "Lauren Settembrino and partner hold right leg up in front of her",
+      caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
+    },
+    {
+      id: "4",
+      alt: "Lauren Settembrino in orange leotard held by partner in arabesque press lift",
+      caption: "Neville Dance Theatre rehearsal",
+    },
+    {
+      id: "17",
+      alt: "Lauren Settembrino in green shirt tosses right arm up and head back with legs wide",
+      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
+    },
+    {
+      id: "3",
+      alt: "Lauren Settembrino with leg in passe surrounded by large plastic sheets",
+      caption: "Photo Credit: Ella Bromblin / <em>Layers</em> by Janae Bonnen, Angie Lu, Evita Zacharioglou",
     },
     {
       id: "11",
@@ -54,24 +54,29 @@
       caption: "Photo Credit: Andrea Pugliese Trager / <em>Wear and Tear</em> by Hayoung Roh",
     },
     {
-      id: "12",
-      alt: "Lauren Settembrino holds right leg in high side attitude in rehearsal studio",
-      caption: "Photo Credit: Alex Tenreiro Theis",
-    },
-    {
-      id: "13",
-      alt: "Lauren Settembrino squats low with legs crossed in gray, white, and pink leotard",
-      caption: "Photo Credit: Alex Tenreiro Theis",
-    },
-    {
-      id: "14",
-      alt: "Lauren Settembrino and partner hold right leg up in front of her",
-      caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
-    },
-    {
       id: "15",
       alt: "Spotlight on Lauren Settembrino in arabesque holding on to group of dancers",
       caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
+    },
+    {
+      id: "8",
+      alt: "Profile of Lauren Settembrino curling fingers near mouth while dancing",
+      caption: "Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal",
+    },
+    {
+      id: "24",
+      alt: "Lauren Settembrino, on pointe, hinges away from hands pushing down",
+      caption: "Neville Dance Theatre",
+    },
+    {
+      id: "20",
+      alt: "Lauren Settembrino, in green shirt and black pants, kicks leg to head",
+      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
+    },
+    {
+      id: "12",
+      alt: "Lauren Settembrino holds right leg in high side attitude in rehearsal studio",
+      caption: "Photo Credit: Alex Tenreiro Theis",
     },
     {
       id: "16",
@@ -79,8 +84,23 @@
       caption: "Photo Credit: Haleigh Dalke / <em>I Am ___</em> by Chad Vaught",
     },
     {
-      id: "17",
-      alt: "Lauren Settembrino in green shirt tosses right arm up and head back with legs wide",
+      id: "7",
+      alt: "Lauren Settembrino in peach skirt arches back during outdoor performance",
+      caption: "Photo Credit: Ori Highbloom / <em>Together, together</em> by Ori Flomin",
+    },
+    {
+      id: "10",
+      alt: "Black and white photo of Lauren Settembrino looking away with one arm extended",
+      caption: "Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal",
+    },
+    {
+      id: "25",
+      alt: "Lauren Settembrino in spotlight arches back to show neck and collarbone",
+      caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
+    },
+    {
+      id: "22",
+      alt: "Lauren Settembrino in green shirt and black pants performs on stage",
       caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
     },
     {
@@ -89,28 +109,13 @@
       caption: "Photo Credit: Ella Bromblin / <em>Snowflakes, The Nutcracker NYC</em> by Giada Matteini",
     },
     {
-      id: "19",
-      alt: "Lauren Settembrino, with relaxed expression, extends right leg with flexed foot",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
-    },
-    {
-      id: "20",
-      alt: "Lauren Settembrino, in green shirt and black pants, kicks leg to head",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
-    },
-    {
-      id: "21",
-      alt: "Lauren Settembrino, in pink, white, and gray leotard, performs layout with leg in attitude front",
-      caption: "Photo Credit: Alex Tenreiro Theis",
-    },
-    {
       id: "5",
       alt: "Lauren Settembrino kicks while rehearsing with male dancer in studio",
       caption: "Neville Dance Theatre rehearsal",
     },
     {
-      id: "22",
-      alt: "Lauren Settembrino in green shirt and black pants performs on stage",
+      id: "19",
+      alt: "Lauren Settembrino, with relaxed expression, extends right leg with flexed foot",
       caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
     },
     {
@@ -119,14 +124,9 @@
       caption: "Neville Dance Theatre",
     },
     {
-      id: "24",
-      alt: "Lauren Settembrino, on pointe, hinges away from hands pushing down",
-      caption: "Neville Dance Theatre",
-    },
-    {
-      id: "25",
-      alt: "Lauren Settembrino in spotlight arches back to show neck and collarbone",
-      caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
+      id: "13",
+      alt: "Lauren Settembrino squats low with legs crossed in gray, white, and pink leotard",
+      caption: "Photo Credit: Alex Tenreiro Theis",
     },
   ];
 
