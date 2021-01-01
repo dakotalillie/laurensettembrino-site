@@ -55,7 +55,8 @@
   }
 
   onMount(() => {
-    if (section && getComputedStyle(section).gridTemplateRows !== "masonry") {
+    console.log(section.clientWidth);
+    if (getComputedStyle(section).gridTemplateRows !== "masonry") {
       gap = parseFloat(getComputedStyle(section).gridRowGap);
       items = Array.from(section.childNodes).filter((c): c is HTMLElement => {
         return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
@@ -95,7 +96,6 @@
     grid-template-columns: repeat(auto-fit, var(--width));
     justify-content: center;
     grid-gap: var(--space);
-    padding: var(--space);
     grid-template-rows: masonry;
     min-height: 100vh;
   }
