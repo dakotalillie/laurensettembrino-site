@@ -137,6 +137,7 @@
   let gap: number;
   let items: HTMLElement[];
   let loadedCount = 0;
+  let modalContentVisible = false;
 
   function layout() {
     const numberOfColumns = Math.ceil(section.clientWidth / MAX_COLUMN_WIDTH);
@@ -172,6 +173,14 @@
 
   function handleLoad() {
     loadedCount++;
+  }
+
+  function handleLoadFull() {
+    modalContentVisible = true;
+  }
+
+  function handleClose() {
+    modalContentVisible = false;
   }
 
   $: if (loadedCount && items?.length && loadedCount === items?.length) {
@@ -213,7 +222,7 @@
 
 <section bind:this={section}>
   {#each pictures as { id, alt, caption }}
-    <Modal let:open>
+    <Modal className={modalContentVisible ? 'visible' : 'invisible'} onClose={handleClose} let:open>
       <button slot="trigger" data-measuring="true" on:click={open}>
         <picture>
           <source srcset={`img/${id}.webp`} type="image/webp" />
@@ -225,9 +234,9 @@
         <picture>
           <source srcset={`img/${id}-full.webp`} type="image/webp" />
           <source srcset={`img/${id}-full.jpg`} type="image/jpeg" />
-          <img class="full" src={`img/${id}-full.jpg`} {alt} />
+          <img class="full" src={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
         </picture>
-        <figcaption class="absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+        <figcaption class="text-sm md:text-base absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
           {@html caption}
         </figcaption>
       </figure>

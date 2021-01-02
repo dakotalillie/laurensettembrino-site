@@ -3,14 +3,21 @@
   import { createFocusTrap } from "focus-trap";
   import { enableBodyScroll, disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
   import CloseIcon from "./CloseIcon.svelte";
+  import clsx from "clsx";
   import type { FocusTrap } from "focus-trap";
+
+  export let className;
+  export let onClose;
 
   let modal: HTMLDialogElement;
   let button: HTMLButtonElement;
   let focusTrap: FocusTrap;
   let isOpen = false;
   const open = () => (isOpen = true);
-  const close = () => (isOpen = false);
+  const close = () => {
+    isOpen = false;
+    onClose?.();
+  };
 
   onDestroy(() => {
     clearAllBodyScrollLocks();
@@ -47,7 +54,7 @@
 
 <style>
   .modal {
-    @apply fixed top-0 left-0 w-full h-screen flex justify-center items-center bg-transparent;
+    @apply fixed p-0 top-0 left-0 w-full h-screen flex justify-center items-center bg-transparent;
   }
 
   .backdrop {
@@ -56,7 +63,7 @@
 
   .content-wrapper {
     @apply z-10 rounded bg-gray-300 overflow-hidden p-2 space-y-2;
-    max-width: min(80vw, 1200px);
+    max-width: min(95vw, 1200px);
   }
 
   .content {
@@ -74,7 +81,7 @@
 <slot name="trigger" {open}><button on:click={open}>Open Modal</button></slot>
 
 {#if isOpen}
-  <dialog class="modal" on:keydown={handleKeyDown} bind:this={modal}>
+  <dialog class={clsx('modal', className)} on:keydown={handleKeyDown} bind:this={modal}>
     <div class="backdrop" on:click={close} />
     <div class="content-wrapper">
       <header class="flex flex-row justify-end">
