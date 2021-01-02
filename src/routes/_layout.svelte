@@ -11,14 +11,22 @@
   div {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: 100vh;
+    height: 100%;
   }
   main {
     @apply text-white mx-4 mb-4;
   }
 
+  :global(html),
+  :global(body),
+  :global(#sapper) {
+    height: 100%;
+  }
+
   :global(body) {
+    background-color: black;
     font-family: "Noto Sans";
+    overflow-y: scroll;
   }
 </style>
 
