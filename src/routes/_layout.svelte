@@ -10,6 +10,10 @@
   main {
     @apply text-white mx-4 mb-4;
   }
+
+  :global(body) {
+    font-family: "Noto Sans";
+  }
 </style>
 
 <GlobalStyles />
