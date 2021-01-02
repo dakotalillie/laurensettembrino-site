@@ -7,9 +7,10 @@
     @apply flex flex-col space-y-2 mt-6 w-full;
   }
 
-  .subheader > span:before {
+  .subheader > span:before,
+  li:before {
     @apply mr-2 text-red-700;
-    content: "\2666";
+    content: "\25c6";
   }
 
   .section-grid {
@@ -33,14 +34,15 @@
     @apply mt-8 border-red-700;
   }
 
-  li:before {
-    @apply mr-2 text-red-700;
-    content: "\2666";
-  }
-
   @screen sm {
     .subheader {
       @apply flex-row space-y-0 space-x-4 mt-4 justify-center;
+    }
+
+    .subheader > span:before,
+    li:before {
+      @apply text-xl;
+      content: "\25c6";
     }
 
     .subheader > span:not(:first-of-type):before {
