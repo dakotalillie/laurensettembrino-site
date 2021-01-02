@@ -2,7 +2,7 @@
   export let page: string;
 </script>
 
-<div class="container mx-auto mt-2 md:mt-4 lg:mt-8 xl:mt-16">
+<div class="container mx-auto my-2 md:my-4 lg:my-8 xl:my-16">
   <div class="py-4 flex flex-row justify-between items-center">
     <h1 class="text-4xl">{page}</h1>
     <slot name="actions" />
