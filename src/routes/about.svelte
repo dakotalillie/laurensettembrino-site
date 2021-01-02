@@ -51,9 +51,9 @@
     </p>
     <h2>Artist Bio</h2>
     <p>
-      Lauren Settembrino is a New York-based dancer and wordsmith. She began her movement journey in central New Jersey,
-      competing throughout the Tri-state area and earning accolades including scholarships and a regional Top 12 finish
-      in contemporary at Youth America Grand Prix.
+      Lauren Settembrino (she/her) is a New York-based dancer and wordsmith. She began her movement journey in central
+      New Jersey, competing throughout the Tri-state area and earning accolades including scholarships and a regional
+      Top 12 finish in contemporary at Youth America Grand Prix.
     </p>
     <p>
       She went on to earn her BFA in Dance from NYU’s Tisch School of the Arts, where she graduated cum laude and was
