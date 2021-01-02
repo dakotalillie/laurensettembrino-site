@@ -74,17 +74,20 @@
       <YouTubeEmbed hasCaption src="https://www.youtube.com/embed/4kDathC_yzM" title="B-Y">
         <h3>B-Y</h3>
         <p>Choreography and Performance: Lauren Settembrino</p>
-        <p>Sound: Booker T. And the M.G.’s</p>
+        <p>Sound: Booker T. & the M.G.’s</p>
         <p>Lighting Design: Deborah Kengmana</p>
         <p>Length: 4 minutes</p>
-        <p class="description"><em>A study of effort and the challenge to dance through its spectrum.</em></p>
+        <p class="description"><em>A study of effort and a challenge to dance through its spectrum.</em></p>
         <blockquote cite="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html">
           <span class="quote">
             The solo, entitled <strong>B–Y</strong>, was performed with total, devil-may-care assurance by Ms.
             Settembrino, a natural mover whose energy and space-covering combinations suited the music to perfection.</span>
           <span class="attribution">
             —
-            <a href="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html">Oberon’s Grove</a>
+            <a
+              href="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html"
+              target="_blank"
+              rel="noopener noreferrer">Oberon’s Grove</a>
           </span>
         </blockquote>
       </YouTubeEmbed>
@@ -125,7 +128,7 @@
       <YouTubeEmbed hasCaption src="https://www.youtube.com/embed/d-2NmqQ2Fyg" title="JFK and Stalin Weren't Strippers">
         <h3>JFK and Stalin Weren’t Strippers</h3>
         <p>Choreography: Lauren Settembrino in collaboration with the dancers</p>
-        <p>Sound: Murcof, Apex Twin</p>
+        <p>Sound: Murcof, Sutekh, Apex Twin</p>
         <p>Sound Editing: Dakota Lillie</p>
         <p>Lighting Design: Tim Van’t Hof</p>
         <p>

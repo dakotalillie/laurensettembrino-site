@@ -47,7 +47,7 @@
   }
 
   @screen lg {
-    .mobile-nav {
+    .mobile-nav-container {
       @apply hidden;
     }
   }

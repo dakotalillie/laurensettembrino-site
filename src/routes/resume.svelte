@@ -75,10 +75,6 @@
       grid-column: 2;
       text-align: right;
     }
-
-    ul {
-      @apply pl-8;
-    }
   }
 </style>
 
@@ -119,9 +115,9 @@
   <div class="section-grid">
     <p><strong>Neville Dance Theatre</strong></p>
     <p><em>Company dancer since Fall 2017</em></p>
-    <div class="location">Milwaukee, WI; Venues throughout NYC</div>
+    <div class="location">Venues throughout NYC; Milwaukee, WI</div>
     <ul>
-      <li>Brenda Neville's <em>Exposed, Elements (pointe), 53 Movements</em></li>
+      <li>Brenda Neville's <em>Exposed, Elements</em> (pointe), <em>53 Movements</em></li>
     </ul>
   </div>
   <div class="balasole section-grid">
@@ -185,7 +181,7 @@
   </div>
   <div class="section-grid">
     <p><strong>College of Arts and Sciences, New York University</strong></p>
-    <p class="location">New York,NY</p>
+    <p class="location">New York, NY</p>
     <p><em>Double major in English</em> (2017)</p>
     <ul>
       <li>Cum Laude, University Honors Scholar</li>

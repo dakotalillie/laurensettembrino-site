@@ -236,7 +236,7 @@
           <source srcset={`img/${id}-full.jpg`} type="image/jpeg" />
           <img class="full" src={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
         </picture>
-        <figcaption class="text-sm md:text-base absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+        <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
           {@html caption}
         </figcaption>
       </figure>
