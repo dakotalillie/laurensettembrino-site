@@ -222,7 +222,7 @@
 
 <section bind:this={section}>
   {#each pictures as { id, alt, caption }}
-    <Modal className={modalContentVisible ? 'visible' : 'invisible'} onClose={handleClose} let:open>
+    <Modal className={modalContentVisible ? 'opacity-100' : 'opacity-0'} onClose={handleClose} let:open>
       <button slot="trigger" data-measuring="true" on:click={open}>
         <picture>
           <source srcset={`img/${id}.webp`} type="image/webp" />

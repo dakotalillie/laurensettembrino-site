@@ -6,8 +6,8 @@
   import clsx from "clsx";
   import type { FocusTrap } from "focus-trap";
 
-  export let className;
-  export let onClose;
+  export let className = "";
+  export let onClose = () => {};
 
   let modal: HTMLDialogElement;
   let button: HTMLButtonElement;
@@ -16,7 +16,7 @@
   const open = () => (isOpen = true);
   const close = () => {
     isOpen = false;
-    onClose?.();
+    onClose();
   };
 
   onDestroy(() => {

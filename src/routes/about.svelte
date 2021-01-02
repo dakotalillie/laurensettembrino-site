@@ -1,10 +1,25 @@
 <script>
   import ContentContainer from "../components/ContentContainer.svelte";
+  import Modal from "../components/Modal.svelte";
+
+  let modalContentVisible = false;
+
+  function handleLoad() {
+    modalContentVisible = true;
+  }
+
+  function handleClose() {
+    modalContentVisible = false;
+  }
 </script>
 
 <style>
-  img {
-    @apply w-full object-cover object-center mb-6;
+  button {
+    @apply mb-6;
+  }
+
+  img.thumbnail {
+    @apply w-full object-cover object-center;
   }
 
   h2 {
@@ -19,9 +34,18 @@
     @apply underline;
   }
 
+  img.full {
+    max-width: 100%;
+    max-height: 75vh;
+  }
+
   @screen sm {
-    img {
-      @apply float-left mr-6 mb-0 w-auto;
+    button {
+      @apply float-left mr-6 mb-0;
+    }
+
+    img.thumbnail {
+      @apply w-auto;
       max-height: 32rem;
     }
   }
@@ -32,11 +56,25 @@
 </svelte:head>
 
 <ContentContainer page="About">
-  <picture>
-    <source srcset="img/headshot.webp" type="image/webp" />
-    <source srcset="img/headshot.jpg" type="image/jpeg" />
-    <img src="img/headshot.jpg" alt="Headshot" />
-  </picture>
+  <Modal className={modalContentVisible ? 'opacity-100' : 'opacity-0'} onClose={handleClose} let:open>
+    <button slot="trigger" on:click={open}>
+      <picture>
+        <source srcset="img/headshot.webp" type="image/webp" />
+        <source srcset="img/headshot.jpg" type="image/jpeg" />
+        <img class="thumbnail" src="img/headshot.jpg" alt="Headshot" />
+      </picture>
+    </button>
+    <figure class="relative" slot="content">
+      <picture>
+        <source srcset="img/headshot-full.webp" type="image/webp" />
+        <source srcset="img/headshot-full.jpg" type="image/jpeg" />
+        <img class="full" src="img/headshot-full.jpg" alt="Headshot" on:load={handleLoad} />
+      </picture>
+      <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+        Photo Credit: Travis Magee
+      </figcaption>
+    </figure>
+  </Modal>
   <div class="space-y-6">
     <h2>About the Artist</h2>
     <p>
