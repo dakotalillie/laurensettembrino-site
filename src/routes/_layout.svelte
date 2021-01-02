@@ -40,6 +40,7 @@
     background-color: black;
     font-family: "Noto Sans";
     overflow-y: scroll;
+    overscroll-behavior-y: none;
   }
 </style>
 

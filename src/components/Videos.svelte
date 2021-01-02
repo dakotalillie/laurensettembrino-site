@@ -56,23 +56,23 @@
 <div class="space-y-16">
   <section>
     <div class="reel">
-      <YouTubeEmbed isReel src="https://www.youtube.com/embed/bnrbjHcfaFM" title="Lauren Settembrino Dance Reel" />
+      <YouTubeEmbed isReel videoId="bnrbjHcfaFM" />
     </div>
   </section>
   <section class="space-y-4">
     <h2>Dance Bites</h2>
     <div class="grid grid-cols-1 gap-2 md:grid-cols-2 ">
-      <YouTubeEmbed src="https://www.youtube.com/embed/q5vMiz7ZPbg" title="Subway dance" />
-      <YouTubeEmbed src="https://www.youtube.com/embed/iCOW7laCRac" title="Living room fun" />
-      <YouTubeEmbed src="https://www.youtube.com/embed/mUWEIdx9I2c" title="Golden boy peanuts" />
-      <YouTubeEmbed src="https://www.youtube.com/embed/Fl8rvKC9yXc" title="Hometown showdown" />
+      <YouTubeEmbed videoId="q5vMiz7ZPbg" />
+      <YouTubeEmbed videoId="iCOW7laCRac" />
+      <YouTubeEmbed videoId="mUWEIdx9I2c" />
+      <YouTubeEmbed videoId="Fl8rvKC9yXc" />
     </div>
   </section>
   <section class="space-y-4">
     <h2>Choreography</h2>
     <div class="grid grid-cols-1 gap-x-2 gap-y-8 md:grid-cols-2">
-      <YouTubeEmbed hasCaption src="https://www.youtube.com/embed/4kDathC_yzM" title="B-Y">
-        <h3>B-Y</h3>
+      <YouTubeEmbed hasCaption videoId="4kDathC_yzM">
+        <h3>B–Y</h3>
         <p>Choreography and Performance: Lauren Settembrino</p>
         <p>Sound: Booker T. & the M.G.’s</p>
         <p>Lighting Design: Deborah Kengmana</p>
@@ -91,10 +91,7 @@
           </span>
         </blockquote>
       </YouTubeEmbed>
-      <YouTubeEmbed
-        hasCaption
-        src="https://www.youtube.com/embed/GBNGa4-cHc4"
-        title="and being able to share that with someone is an amazing thing">
+      <YouTubeEmbed hasCaption videoId="GBNGa4-cHc4">
         <h3>and being able to share that with someone is an amazing thing</h3>
         <p>Choreography: Lauren Settembrino in collaboration with the dancers</p>
         <p>Sound: Dakota Lillie, Alex MacKinnon</p>
@@ -110,7 +107,7 @@
             impulsive fears to paint its picture.</em>
         </p>
       </YouTubeEmbed>
-      <YouTubeEmbed hasCaption src="https://www.youtube.com/embed/D35ypLnPmbU" title="which is sometimes known as">
+      <YouTubeEmbed hasCaption videoId="D35ypLnPmbU">
         <h3>which is sometimes known as</h3>
         <p>Choreography and Performance: Lauren Settembrino and Carly Lepore</p>
         <p>Sound: Ziggy Marley and the Melody Makers, Hank Green, John Green</p>
@@ -125,7 +122,7 @@
             layered on.</em>
         </p>
       </YouTubeEmbed>
-      <YouTubeEmbed hasCaption src="https://www.youtube.com/embed/d-2NmqQ2Fyg" title="JFK and Stalin Weren't Strippers">
+      <YouTubeEmbed hasCaption videoId="d-2NmqQ2Fyg">
         <h3>JFK and Stalin Weren’t Strippers</h3>
         <p>Choreography: Lauren Settembrino in collaboration with the dancers</p>
         <p>Sound: Murcof, Sutekh, Apex Twin</p>
