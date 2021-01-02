@@ -68,7 +68,7 @@
 
   .content {
     @apply overflow-hidden;
-    max-height: 80vh;
+    max-height: calc(var(--vh, 1vh) * 80);
   }
 
   @screen md {

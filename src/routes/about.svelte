@@ -36,7 +36,7 @@
 
   img.full {
     max-width: 100%;
-    max-height: 75vh;
+    max-height: calc(var(--vh, 1vh) * 75);
   }
 
   @screen sm {

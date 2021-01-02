@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import Modal from "../components/Modal.svelte";
+  import debounce from "../utils/debounce";
 
   const pictures = [
     {
@@ -139,7 +140,7 @@
   let loadedCount = 0;
   let modalContentVisible = false;
 
-  function layout() {
+  const layout = debounce(() => {
     const numberOfColumns = Math.ceil(section.clientWidth / MAX_COLUMN_WIDTH);
     const allGapsWidth = (numberOfColumns - 1) * gap;
     const width = (section.clientWidth - allGapsWidth) / numberOfColumns;
@@ -156,7 +157,7 @@
     }
 
     items.forEach((c) => c.removeAttribute("data-measuring"));
-  }
+  }, 250);
 
   onMount(() => {
     gap = parseFloat(getComputedStyle(section).gridRowGap);
@@ -196,7 +197,7 @@
     display: grid;
     justify-content: center;
     grid-gap: var(--space);
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
   }
 
   img.thumbnail {
@@ -206,7 +207,7 @@
 
   img.full {
     max-width: 100%;
-    max-height: 75vh;
+    max-height: calc(var(--vh, 1vh) * 75);
   }
 
   button {
