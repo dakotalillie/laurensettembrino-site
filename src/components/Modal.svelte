@@ -7,13 +7,17 @@
   import type { FocusTrap } from "focus-trap";
 
   export let className = "";
+  export let onOpen = () => {};
   export let onClose = () => {};
 
   let modal: HTMLDialogElement;
   let button: HTMLButtonElement;
   let focusTrap: FocusTrap;
   let isOpen = false;
-  const open = () => (isOpen = true);
+  const open = () => {
+    isOpen = true;
+    onOpen();
+  };
   const close = () => {
     isOpen = false;
     onClose();

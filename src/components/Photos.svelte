@@ -1,7 +1,9 @@
 <script lang="ts">
-  import { onMount, onDestroy } from "svelte";
+  import { onMount, onDestroy, tick } from "svelte";
   import Modal from "../components/Modal.svelte";
   import debounce from "../utils/debounce";
+
+  import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
   const pictures = [
     {
@@ -139,6 +141,10 @@
   let items: HTMLElement[];
   let loadedCount = 0;
   let modalContentVisible = false;
+  let carousel;
+  let Splide;
+  let splideInstance;
+  let startingIndex;
 
   const layout = debounce(() => {
     const numberOfColumns = Math.ceil(section.clientWidth / MAX_COLUMN_WIDTH);
@@ -180,8 +186,45 @@
     modalContentVisible = true;
   }
 
+  function handleClick(open, index) {
+    import("@splidejs/splide").then((res) => {
+      // The type seems to be incorrect here
+      Splide = (res.default as any).default;
+      startingIndex = index;
+      open();
+    });
+  }
+
+  function handleCarouselResize() {
+    tick().then(() => {
+      const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper"));
+      splideInstance.options.fixedWidth =
+        parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2;
+    });
+  }
+
+  function handleOpen() {
+    tick().then(() => {
+      const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper"));
+      splideInstance = new Splide(carousel, {
+        autoHeight: true,
+        type: "fade",
+        speed: 0,
+        perPage: 1,
+        fixedWidth: parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2,
+        pagination: false,
+        gap: 0,
+        padding: 0,
+        start: startingIndex,
+        rewind: true,
+      }).mount();
+      addEventListener("resize", handleCarouselResize);
+    });
+  }
+
   function handleClose() {
     modalContentVisible = false;
+    removeEventListener("resize", handleCarouselResize);
   }
 
   $: if (loadedCount && items?.length && loadedCount === items?.length) {
@@ -219,28 +262,54 @@
   button[data-measuring] {
     opacity: 0;
   }
+
+  @media (max-width: 639px) {
+    :global(.splide__arrow) {
+      height: 1.5em;
+      width: 1.5em;
+    }
+
+    :global(.splide__arrow svg) {
+      height: 0.9em;
+      width: 0.9em;
+    }
+  }
 </style>
 
 <section bind:this={section}>
-  {#each pictures as { id, alt, caption }}
-    <Modal className={modalContentVisible ? 'opacity-100' : 'opacity-0'} onClose={handleClose} let:open>
-      <button slot="trigger" data-measuring="true" on:click={open}>
+  {#each pictures as { id, alt }, index}
+    <Modal
+      className={modalContentVisible ? 'opacity-100' : 'opacity-0'}
+      onClose={handleClose}
+      onOpen={handleOpen}
+      let:open>
+      <button slot="trigger" data-measuring="true" on:click={() => handleClick(open, index)}>
         <picture>
           <source srcset={`img/${id}.webp`} type="image/webp" />
           <source srcset={`img/${id}.jpg`} type="image/jpeg" />
           <img class="thumbnail" src={`img/${id}.jpg`} {alt} on:load={handleLoad} />
         </picture>
       </button>
-      <figure class="relative" slot="content">
-        <picture>
-          <source srcset={`img/${id}-full.webp`} type="image/webp" />
-          <source srcset={`img/${id}-full.jpg`} type="image/jpeg" />
-          <img class="full" src={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
-        </picture>
-        <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
-          {@html caption}
-        </figcaption>
-      </figure>
+      <div bind:this={carousel} class="relative" slot="content">
+        <div class="splide__track">
+          <div class="splide__list">
+            {#each pictures as { id, alt, caption }}
+              <div class="splide__slide flex items-center justify-center bg-black">
+                <figure class="relative">
+                  <picture>
+                    <source srcset={`img/${id}-full.webp`} type="image/webp" />
+                    <source srcset={`img/${id}-full.jpg`} type="image/jpeg" />
+                    <img class="full" src={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
+                  </picture>
+                </figure>
+                <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+                  {@html caption}
+                </p>
+              </div>
+            {/each}
+          </div>
+        </div>
+      </div>
     </Modal>
   {/each}
 </section>

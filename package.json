@@ -10,6 +10,7 @@
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
   "dependencies": {
+    "@splidejs/splide": "^2.4.21",
     "body-scroll-lock": "^3.1.5",
     "clsx": "^1.1.1",
     "compression": "^1.7.1",
