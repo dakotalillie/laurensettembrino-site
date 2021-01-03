@@ -1,6 +1,7 @@
 <script>
   import ContentContainer from "../components/ContentContainer.svelte";
   import Modal from "../components/Modal.svelte";
+  import Blockquote from "../components/Blockquote.svelte";
 
   let modalContentVisible = false;
 
@@ -19,15 +20,15 @@
   }
 
   img.thumbnail {
-    @apply w-full object-cover object-center;
+    @apply w-full object-cover;
+
+    min-height: 24rem;
+    max-height: 36rem;
+    object-position: center top;
   }
 
   h2 {
     @apply text-2xl font-bold;
-  }
-
-  p {
-    @apply text-lg;
   }
 
   a {
@@ -46,7 +47,26 @@
 
     img.thumbnail {
       @apply w-auto;
-      max-height: 32rem;
+      height: 30rem;
+      min-height: unset;
+    }
+  }
+
+  @screen lg {
+    img.thumbnail {
+      height: 21rem;
+    }
+  }
+
+  @screen xl {
+    img.thumbnail {
+      height: 26rem;
+    }
+  }
+
+  @screen 2xl {
+    img.thumbnail {
+      height: 30rem;
     }
   }
 </style>
@@ -81,7 +101,7 @@
       </figcaption>
     </figure>
   </Modal>
-  <div class="space-y-6">
+  <div class="space-y-6 md:text-lg">
     <h2>About the Artist</h2>
     <p>
       As a dancer, Lauren is most interested in working from a place of honesty — with the body, with others, and with
@@ -93,6 +113,15 @@
       As a choreographer, Lauren shifts her explorations between deep emotionality and joyful reminders not to take
       things too seriously.
     </p>
+    <div class="w-auto overflow-hidden">
+      <Blockquote className="md:mx-8">
+        <span slot="quote" let:class={className} class={className}><em>Lauren has a specificity and exactness to the
+            ways she moves. She has deep understanding and appreciation for classical forms, and a willingness to
+            explore and play with new ideas. Her technique is clean and powerful in a way that slowly draws you in, and
+            then keeps you there with an honest and nuanced performance quality.</em></span>
+        <span slot="attribution" let:class={className} class={className}> — Angie Moon Conte</span>
+      </Blockquote>
+    </div>
     <h2>Artist Bio</h2>
     <p>
       Lauren Settembrino (she/her) is a New York-based dancer and wordsmith. She began her movement journey in central
@@ -123,5 +152,15 @@
       <a href="https://www.angiemoondance.com/" target="_blank" rel="noopener noreferrer">Angie Moon Dance Theatre</a>,
       alongside freelance projects.
     </p>
+    <div class="w-auto overflow-hidden">
+      <Blockquote className="md:mx-8">
+        <span slot="quote" let:class={className} class={className}><em>Beyond Lauren’s incredible technical prowess, she
+            also brings a calm and warm presence to the rehearsal space. She is a brilliant mind, and makes connections
+            within the work that I often don’t even find myself. She is communicative, reliable, and the kind of artist
+            who fully commits to every project she is a part of. She is a grounding presence for the group, and for me.
+            It’s an honor to work alongside her.</em></span>
+        <span slot="attribution" let:class={className} class={className}> — Angie Moon Conte</span>
+      </Blockquote>
+    </div>
   </div>
 </ContentContainer>

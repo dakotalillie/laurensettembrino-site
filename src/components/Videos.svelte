@@ -1,5 +1,6 @@
 <script>
   import YouTubeEmbed from "./YouTubeEmbed.svelte";
+  import Blockquote from "./Blockquote.svelte";
 </script>
 
 <style>
@@ -19,32 +20,8 @@
     margin-top: 1rem !important;
   }
 
-  blockquote {
-    @apply pl-6 pt-2 pb-2 border-l-4 mr-8 border-red-700 text-gray-700 leading-6;
-
+  :global(.blockquote) {
     margin-top: 1rem !important;
-  }
-
-  blockquote .quote {
-    @apply mr-4;
-  }
-
-  blockquote .quote::before {
-    @apply text-red-700 text-2xl;
-    content: open-quote;
-    position: absolute;
-    transform: translate(-110%, -11%);
-  }
-
-  blockquote .quote::after {
-    @apply text-red-700 text-2xl;
-    content: close-quote;
-    position: absolute;
-    transform: translate(5%, -11%);
-  }
-
-  blockquote .attribution {
-    @apply whitespace-nowrap;
   }
 
   .reel {
@@ -79,18 +56,20 @@
         <p>Lighting Design: Deborah Kengmana</p>
         <p>Length: 4 minutes</p>
         <p class="description"><em>A study of effort and a challenge to dance through its spectrum.</em></p>
-        <blockquote cite="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html">
-          <span class="quote">
+        <Blockquote
+          cite="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html"
+          className="blockquote mr-8">
+          <span slot="quote" let:class={className} class={className}>
             The solo, entitled <strong>B–Y</strong>, was performed with total, devil-may-care assurance by Ms.
             Settembrino, a natural mover whose energy and space-covering combinations suited the music to perfection.</span>
-          <span class="attribution">
+          <span slot="attribution" let:class={className} class={className}>
             —
             <a
               href="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html"
               target="_blank"
               rel="noopener noreferrer">Oberon’s Grove</a>
           </span>
-        </blockquote>
+        </Blockquote>
       </YouTubeEmbed>
       <YouTubeEmbed hasCaption videoId="GBNGa4-cHc4">
         <h3>and being able to share that with someone is an amazing thing</h3>
