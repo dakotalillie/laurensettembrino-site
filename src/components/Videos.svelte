@@ -50,7 +50,7 @@
     <h2>Choreography</h2>
     <div class="grid grid-cols-1 gap-x-2 gap-y-8 md:grid-cols-2">
       <YouTubeEmbed hasCaption videoId="4kDathC_yzM">
-        <h3>B–Y</h3>
+        <h3>B&ndash;Y</h3>
         <p>Choreography and Performance: Lauren Settembrino</p>
         <p>Sound: Booker T. & the M.G.’s</p>
         <p>Lighting Design: Deborah Kengmana</p>
@@ -60,7 +60,7 @@
           cite="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html"
           className="blockquote mr-8">
           <span slot="quote" let:class={className} class={className}>
-            The solo, entitled <strong>B–Y</strong>, was performed with total, devil-may-care assurance by Ms.
+            The solo, entitled <strong>B&ndash;Y</strong>, was performed with total, devil-may-care assurance by Ms.
             Settembrino, a natural mover whose energy and space-covering combinations suited the music to perfection.</span>
           <span slot="attribution" let:class={className} class={className}>
             —

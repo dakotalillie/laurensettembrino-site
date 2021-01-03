@@ -117,7 +117,7 @@
     <p><em>Company dancer since August 2018</em></p>
     <p class="location">Venues throughout NYC</p>
     <ul>
-      <li>Angie Conte's <em>HUNTING YEAR, The Drowning Pine</em></li>
+      <li>Angie Moon Conte's <em>HUNTING YEAR, The Drowning Pine</em></li>
     </ul>
   </div>
   <div class="section-grid">
@@ -133,7 +133,7 @@
     <p><em>Featured Soloist</em> (2018)</p>
     <p class="location1">Ailey Citigroup Theater, NYC</p>
     <ul>
-      <li>Original choreography: <em>B-Y</em></li>
+      <li>Original choreography: <em>B&ndash;Y</em></li>
     </ul>
     <p class="mt-2 md:mt-0"><em>Featured Emerging Artist</em> (2017)</p>
     <p class="location2">Brooklyn Academy of Music (Fisher), NYC</p>

@@ -10,7 +10,7 @@
     {
       id: "18",
       alt: "Lauren Settembrino in green shirt hinges backward toward floor",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
+      caption: "Photo Credit: Eric Bandiero / <em>B&ndash;Y</em> by Lauren Settembrino with BalaSole Dance Company",
       height: 400,
     },
     {
@@ -52,7 +52,7 @@
     {
       id: "17",
       alt: "Lauren Settembrino in green shirt tosses right arm up and head back with legs wide",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
+      caption: "Photo Credit: Eric Bandiero / <em>B&ndash;Y</em> by Lauren Settembrino with BalaSole Dance Company",
       height: 400,
     },
     {
@@ -88,7 +88,7 @@
     {
       id: "20",
       alt: "Lauren Settembrino, in green shirt and black pants, kicks leg to head",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
+      caption: "Photo Credit: Eric Bandiero / <em>B&ndash;Y</em> by Lauren Settembrino with BalaSole Dance Company",
       height: 400,
     },
     {
@@ -124,7 +124,7 @@
     {
       id: "22",
       alt: "Lauren Settembrino in green shirt and black pants performs on stage",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
+      caption: "Photo Credit: Eric Bandiero / <em>B&ndash;Y</em> by Lauren Settembrino with BalaSole Dance Company",
       height: 400,
     },
     {
@@ -142,7 +142,7 @@
     {
       id: "19",
       alt: "Lauren Settembrino, with relaxed expression, extends right leg with flexed foot",
-      caption: "Photo Credit: Eric Bandiero / <em>B–Y</em> by Lauren Settembrino with BalaSole Dance Company",
+      caption: "Photo Credit: Eric Bandiero / <em>B&ndash;Y</em> by Lauren Settembrino with BalaSole Dance Company",
       height: 400,
     },
     {
@@ -170,7 +170,7 @@
   let carousel;
   let Splide;
   let splideInstance;
-  let startingIndex;
+  let currentIndex;
 
   const layout = debounce(() => {
     const numberOfColumns = Math.ceil(section.clientWidth / MAX_COLUMN_WIDTH);
@@ -212,7 +212,7 @@
     import("@splidejs/splide").then((res) => {
       // The type seems to be incorrect here
       Splide = (res.default as any).default;
-      startingIndex = index;
+      currentIndex = index;
       open();
     });
   }
@@ -237,15 +237,18 @@
         pagination: false,
         perPage: 1,
         speed: 0,
-        start: startingIndex,
+        start: currentIndex,
         type: "fade",
       }).mount();
+      splideInstance.on("moved", (newIndex) => (currentIndex = newIndex));
       addEventListener("resize", handleCarouselResize);
     });
   }
 
   function handleClose() {
     modalContentVisible = false;
+    currentIndex = undefined;
+    splideInstance.off("moved");
     removeEventListener("resize", handleCarouselResize);
   }
 </script>
@@ -275,6 +278,14 @@
   }
 
   :global(.splide__spinner) {
+    @apply hidden;
+  }
+
+  :global(.splide--fade[data-active="first"] .splide__arrow--prev) {
+    @apply hidden;
+  }
+
+  :global(.splide--fade[data-active="last"] .splide__arrow--next) {
     @apply hidden;
   }
 
@@ -314,7 +325,11 @@
           {/if}
         </IntersectionObserver>
       </button>
-      <div bind:this={carousel} class="relative" slot="content">
+      <div
+        bind:this={carousel}
+        data-active={currentIndex === 0 ? 'first' : currentIndex === pictures.length - 1 ? 'last' : undefined}
+        class="relative"
+        slot="content">
         <div class="splide__track">
           <div class="splide__list">
             {#each pictures as { id, alt, caption }}
