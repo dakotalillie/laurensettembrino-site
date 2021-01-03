@@ -208,14 +208,15 @@
       const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper"));
       splideInstance = new Splide(carousel, {
         autoHeight: true,
-        type: "fade",
-        speed: 0,
-        perPage: 1,
         fixedWidth: parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2,
-        pagination: false,
         gap: 0,
+        lazyLoad: "nearby",
         padding: 0,
+        pagination: false,
+        perPage: 1,
+        speed: 0,
         start: startingIndex,
+        type: "fade",
       }).mount();
       addEventListener("resize", handleCarouselResize);
     });
@@ -262,6 +263,10 @@
     opacity: 0;
   }
 
+  :global(.splide__spinner) {
+    @apply hidden;
+  }
+
   @media (max-width: 639px) {
     :global(.splide__arrow) {
       height: 1.5em;
@@ -296,9 +301,9 @@
               <div class="splide__slide flex items-center justify-center bg-black">
                 <figure class="relative">
                   <picture>
-                    <source srcset={`img/${id}-full.webp`} type="image/webp" />
-                    <source srcset={`img/${id}-full.jpg`} type="image/jpeg" />
-                    <img class="full" src={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
+                    <source data-splide-lazy-srcset={`img/${id}-full.webp`} type="image/webp" />
+                    <source data-splide-lazy-srcset={`img/${id}-full.jpg`} type="image/jpeg" />
+                    <img class="full" data-splide-lazy={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
                   </picture>
                 </figure>
                 <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
