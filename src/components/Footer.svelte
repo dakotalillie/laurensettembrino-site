@@ -1,6 +1,6 @@
 <style>
   div {
-    @apply flex flex-row justify-center items-end space-x-8 py-6;
+    @apply flex flex-row justify-center items-end space-x-8 pb-6;
   }
 
   .youtube {
