@@ -52,7 +52,7 @@
 </style>
 
 <svelte:head>
-  <title>About — Lauren Settembrino</title>
+  <title>About | Lauren Settembrino</title>
 </svelte:head>
 
 <ContentContainer page="About">
