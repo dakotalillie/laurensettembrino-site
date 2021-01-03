@@ -18,7 +18,10 @@
   }
 
   onMount(() => {
-    isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      // Account for iPad pretending it's a Mac when requesting Desktop sites
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`)
       .then((res) => res.json())
       .then((res) => (title = res.title));
@@ -160,7 +163,7 @@
       <iframe
         {title}
         type="text/html"
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+        src={`https://www.youtube.com/embed/${videoId}${!isMobile ? '?autoplay=1' : ''}`}
         class={!isMobile && videoStatus === 'loading' ? 'hidden' : 'block'}
         height="100%"
         width="100%"
