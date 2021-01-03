@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy, tick } from "svelte";
-  import Modal from "../components/Modal.svelte";
+  import Modal from "./Modal.svelte";
   import debounce from "../utils/debounce";
 
   import "@splidejs/splide/dist/css/themes/splide-default.min.css";
