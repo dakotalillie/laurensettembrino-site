@@ -61,7 +61,7 @@
       <picture>
         <source srcset="img/headshot.webp" type="image/webp" />
         <source srcset="img/headshot.jpg" type="image/jpeg" />
-        <img class="thumbnail" src="img/headshot.jpg" alt="Headshot" />
+        <img width="340px" height="510px" class="thumbnail" src="img/headshot.jpg" alt="Headshot" />
       </picture>
     </button>
     <figure class="relative" slot="content">
