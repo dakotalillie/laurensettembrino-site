@@ -71,6 +71,12 @@
 
 <svelte:head>
   <title>Contact | Lauren Settembrino</title>
+  <meta property="og:site_name" content="Lauren Settembrino" />
+  <meta property="og:title" content="Contact | Lauren Settembrino" />
+  <meta property="og:description" content="Lauren Settembrino is a dancer and choreographer based in New York City." />
+  <meta property="og:image" content="https://laurensettembrino.com/img/home-bg-mobile.jpg" />
+  <meta property="og:url" content="https://laurensettembrino.com/contact/" />
+  <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <ContentContainer page="Contact">
