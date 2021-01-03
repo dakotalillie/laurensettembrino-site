@@ -216,7 +216,6 @@
         gap: 0,
         padding: 0,
         start: startingIndex,
-        rewind: true,
       }).mount();
       addEventListener("resize", handleCarouselResize);
     });

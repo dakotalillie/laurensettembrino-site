@@ -55,6 +55,7 @@
 
 <div class="space-y-16">
   <section>
+    <h2 class="mb-4 sm:hidden sm:mb-0">Dance Reel</h2>
     <div class="reel">
       <YouTubeEmbed isReel videoId="bnrbjHcfaFM" />
     </div>

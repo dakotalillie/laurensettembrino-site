@@ -76,7 +76,7 @@
 <ContentContainer page="Contact">
   <div class="grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2 ">
     <Modal className={modalContentVisible ? 'opacity-100' : 'opacity-0'} onClose={handleClose} let:open>
-      <button slot="trigger" on:click={open}>
+      <button class="flex items-stretch" slot="trigger" on:click={open}>
         <picture>
           <source srcset="img/contact.webp" type="image/webp" />
           <source srcset="img/contact.jpg" type="image/jpeg" />
