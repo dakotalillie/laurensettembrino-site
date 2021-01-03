@@ -7,9 +7,13 @@
 <style>
   div {
     @apply h-screen fixed left-0 top-0 w-screen;
-    background: transparent url("/img/home-bg-mobile.jpg") no-repeat 30% center;
+    background: transparent no-repeat 30% center;
     background-size: cover;
     z-index: -1;
+  }
+
+  :global(.no-webp) div {
+    background-image: url("/img/home-bg-mobile.jpg");
   }
 
   :global(.webp) div {
@@ -21,7 +25,7 @@
   }
 
   @screen md {
-    div {
+    :global(.no-webp) div {
       background-image: url("/img/home-bg-tablet.jpg");
     }
 
@@ -31,7 +35,7 @@
   }
 
   @screen lg {
-    div {
+    :global(.no-webp) div {
       background-image: url("/img/home-bg-laptop.jpg");
     }
 
@@ -41,7 +45,7 @@
   }
 
   @screen xl {
-    div,
+    :global(.no-webp) div,
     :global(.webp) div {
       background-image: url("/img/home-bg.jpg");
     }
