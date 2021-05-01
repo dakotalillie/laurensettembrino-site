@@ -25,7 +25,7 @@ jobs:
           rm -rf __sapper__
       - name: Create CNAME file
         run: |
-          echo "laurensettembrino.com" > CNAME
+          echo "www.laurensettembrino.com" > CNAME
       - name: Configure git
         run: |
           git config --local user.email "dakota.lillie@icloud.com"
