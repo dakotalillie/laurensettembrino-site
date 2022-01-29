@@ -28,16 +28,16 @@
   <Modal isVisible={modalContentVisible} onClose={handleClose} let:open>
     <button slot="trigger" on:click={open}>
       <picture>
-        <source srcset="img/headshot.webp" type="image/webp" />
-        <source srcset="img/headshot.jpg" type="image/jpeg" />
-        <img width="340px" height="510px" class="thumbnail" src="img/headshot.jpg" alt="Headshot" />
+        <source srcset="/img/headshot.webp" type="image/webp" />
+        <source srcset="/img/headshot.jpg" type="image/jpeg" />
+        <img width="340px" height="510px" class="thumbnail" src="/img/headshot.jpg" alt="Headshot" />
       </picture>
     </button>
     <figure class="relative" slot="content">
       <picture>
-        <source srcset="img/headshot-full.webp" type="image/webp" />
-        <source srcset="img/headshot-full.jpg" type="image/jpeg" />
-        <img class="full" src="img/headshot-full.jpg" alt="Headshot" on:load={handleLoad} />
+        <source srcset="/img/headshot-full.webp" type="image/webp" />
+        <source srcset="/img/headshot-full.jpg" type="image/jpeg" />
+        <img class="full" src="/img/headshot-full.jpg" alt="Headshot" on:load={handleLoad} />
       </picture>
       <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
         Photo Credit: Travis Magee

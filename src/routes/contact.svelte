@@ -52,19 +52,19 @@
     <Modal isVisible={modalContentVisible} onClose={handleClose} let:open>
       <button class="flex items-stretch" slot="trigger" on:click={open}>
         <picture>
-          <source srcset="img/contact.webp" type="image/webp" />
-          <source srcset="img/contact.jpg" type="image/jpeg" />
-          <img class="thumbnail" src="img/contact.jpg" alt="Contact" />
+          <source srcset="/img/contact.webp" type="image/webp" />
+          <source srcset="/img/contact.jpg" type="image/jpeg" />
+          <img class="thumbnail" src="/img/contact.jpg" alt="Contact" />
         </picture>
       </button>
       <figure class="relative" slot="content">
         <picture>
-          <source srcset="img/10-full.webp" type="image/webp" />
-          <source srcset="img/10-full.jpg" type="image/jpeg" />
+          <source srcset="/img/10-full.webp" type="image/webp" />
+          <source srcset="/img/10-full.jpg" type="image/jpeg" />
           <!-- svelte-ignore a11y-img-redundant-alt -->
           <img
             class="full"
-            src="img/10-full.jpg"
+            src="/img/10-full.jpg"
             alt="Black and white photo of Lauren Settembrino looking away with one arm extended"
             on:load={handleLoad}
           />

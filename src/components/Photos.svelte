@@ -266,9 +266,9 @@
         <IntersectionObserver top={80} once let:intersecting>
           {#if measured && intersecting}
             <picture>
-              <source srcset={`img/${id}.webp`} type="image/webp" />
-              <source srcset={`img/${id}.jpg`} type="image/jpeg" />
-              <img class="thumbnail" src={`img/${id}.jpg`} {alt} />
+              <source srcset={`/img/${id}.webp`} type="image/webp" />
+              <source srcset={`/img/${id}.jpg`} type="image/jpeg" />
+              <img class="thumbnail" src={`/img/${id}.jpg`} {alt} />
             </picture>
           {/if}
         </IntersectionObserver>
@@ -285,9 +285,9 @@
               <div class="splide__slide flex items-center justify-center bg-black">
                 <figure class="relative">
                   <picture>
-                    <source data-splide-lazy-srcset={`img/${id}-full.webp`} type="image/webp" />
-                    <source data-splide-lazy-srcset={`img/${id}-full.jpg`} type="image/jpeg" />
-                    <img class="full" data-splide-lazy={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
+                    <source data-splide-lazy-srcset={`/img/${id}-full.webp`} type="image/webp" />
+                    <source data-splide-lazy-srcset={`/img/${id}-full.jpg`} type="image/jpeg" />
+                    <img class="full" data-splide-lazy={`/img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
                   </picture>
                 </figure>
                 <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
