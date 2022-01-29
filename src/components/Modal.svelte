@@ -3,10 +3,9 @@
   import { createFocusTrap } from "focus-trap";
   import { enableBodyScroll, disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
   import CloseIcon from "./CloseIcon.svelte";
-  import clsx from "clsx";
   import type { FocusTrap } from "focus-trap";
 
-  export let className = "";
+  export let isVisible = false;
   export let onOpen = () => {};
   export let onClose = () => {};
 
@@ -59,7 +58,7 @@
 <slot name="trigger" {open}><button on:click={open}>Open Modal</button></slot>
 
 {#if isOpen}
-  <dialog class={clsx("modal", className)} on:keydown={handleKeyDown} bind:this={modal}>
+  <dialog class="modal" class:visible={isVisible} on:keydown={handleKeyDown} bind:this={modal}>
     <div class="backdrop" on:click={close} />
     <div class="content-wrapper">
       <header class="flex flex-row justify-end">
@@ -74,7 +73,11 @@
 
 <style>
   .modal {
-    @apply fixed p-0 top-0 left-0 w-full h-screen flex justify-center items-center bg-transparent;
+    @apply fixed p-0 top-0 left-0 w-full h-screen flex justify-center items-center bg-transparent opacity-0;
+  }
+
+  .modal.visible {
+    @apply opacity-100;
   }
 
   .backdrop {
@@ -82,18 +85,12 @@
   }
 
   .content-wrapper {
-    @apply z-10 rounded bg-gray-300 overflow-hidden p-2 space-y-2;
+    @apply z-10 rounded bg-gray-300 overflow-hidden p-2 space-y-2 md:p-4 md:space-y-4;
     max-width: min(95vw, 1200px);
   }
 
   .content {
     @apply overflow-hidden;
     max-height: calc(var(--vh, 1vh) * 80);
-  }
-
-  @screen md {
-    .content-wrapper {
-      @apply p-4 space-y-4;
-    }
   }
 </style>

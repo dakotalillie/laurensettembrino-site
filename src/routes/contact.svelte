@@ -49,7 +49,7 @@
 
 <ContentContainer page="Contact">
   <div class="grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2 ">
-    <Modal className={modalContentVisible ? "opacity-100" : "opacity-0"} onClose={handleClose} let:open>
+    <Modal isVisible={modalContentVisible} onClose={handleClose} let:open>
       <button class="flex items-stretch" slot="trigger" on:click={open}>
         <picture>
           <source srcset="img/contact.webp" type="image/webp" />
@@ -125,18 +125,17 @@
   }
 
   img.thumbnail {
-    @apply h-48 w-full object-cover;
+    @apply h-48 w-full object-cover lg:h-full;
     object-position: 85% 25%;
   }
 
-  @screen lg {
+  @media screen(lg) {
     form {
       grid-column: 1;
       grid-row: 1;
     }
 
     img.thumbnail {
-      @apply h-full;
       grid-column: 2;
       grid-row: 1;
     }

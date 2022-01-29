@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let segment: string;
+  import { page } from "$app/stores";
 
-  $: isBlurred = segment !== undefined;
+  $: isBlurred = $page.url.pathname !== "/";
 </script>
 
 <div class:blurred={isBlurred} />
@@ -26,7 +26,7 @@
     filter: blur(12px);
   }
 
-  @screen md {
+  @media screen(md) {
     :global(.no-webp) div {
       background-image: url("/img/home-bg-tablet.jpg");
     }
@@ -36,7 +36,7 @@
     }
   }
 
-  @screen lg {
+  @media screen(lg) {
     :global(.no-webp) div {
       background-image: url("/img/home-bg-laptop.jpg");
     }
@@ -46,7 +46,7 @@
     }
   }
 
-  @screen xl {
+  @media screen(xl) {
     :global(.no-webp) div,
     :global(.webp) div {
       background-image: url("/img/home-bg.jpg");

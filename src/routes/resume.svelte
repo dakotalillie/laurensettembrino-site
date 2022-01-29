@@ -105,7 +105,9 @@
     <p><em>BFA in Dance, May 2017</em></p>
     <ul>
       <li><em>Contemporary</em>: Rashaun Mitchell, Pamela Pietro, Elizabeth Coker, Ori Flomin</li>
-      <li><em>Ballet</em>: Giada Ferrone, Cherylyn Lavagnino, James Martin, Jolinda Menendez (pointe)</li>
+      <li>
+        <em>Ballet</em>: Giada Ferrone, Cherylyn Lavagnino, James Martin, Jolinda Menendez (pointe)
+      </li>
       <li><em>Composition and improvisation</em>: Rashaun Mitchell, Jermey Nelson, Sean Curran</li>
     </ul>
   </div>
@@ -143,13 +145,21 @@
 
 <style>
   .subheader {
-    @apply flex flex-col space-y-2 mt-6 w-full;
+    @apply flex flex-col space-y-2 mt-6 w-full sm:flex-row sm:space-y-0 sm:space-x-4 sm:mt-4 sm:justify-center;
   }
 
   .subheader > span:before,
   li:before {
-    @apply mr-2 text-red-700;
+    @apply mr-2 text-red-700 sm:text-xl;
     content: "\25c6";
+  }
+
+  .subheader > span:not(:first-of-type):before {
+    @apply sm:mr-4;
+  }
+
+  .subheader > span:first-of-type:before {
+    @apply sm:mr-0;
   }
 
   .section-grid {
@@ -173,28 +183,13 @@
     @apply mt-8 border-red-700;
   }
 
-  @screen sm {
-    .subheader {
-      @apply flex-row space-y-0 space-x-4 mt-4 justify-center;
-    }
-
-    .subheader > span:before,
-    li:before {
-      @apply text-xl;
-      content: "\25c6";
-    }
-
-    .subheader > span:not(:first-of-type):before {
-      @apply mr-4;
-    }
-
+  @media screen(sm) {
     .subheader > span:first-of-type:before {
-      @apply mr-0;
       content: "";
     }
   }
 
-  @screen md {
+  @media screen(md) {
     .section-grid {
       grid-template-columns: 1fr auto;
     }

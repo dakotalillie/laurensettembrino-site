@@ -1,12 +1,10 @@
 <script lang="ts">
   import Logo from "./Logo.svelte";
   import Nav from "./Nav.svelte";
-
-  export let segment: string;
 </script>
 
 <header>
-  <Nav {segment} />
+  <Nav />
   <div class="logo xl:mt-0">
     <a aria-label="Lauren Settembrino logo" href=".">
       <Logo />
@@ -44,7 +42,7 @@
     }
   }
 
-  @screen lg {
+  @media screen(lg) {
     .logo {
       grid-column: 3;
       grid-row: 1;
@@ -58,7 +56,8 @@
 
   @media (min-width: 1680px) {
     header {
-      @apply px-16;
+      padding-left: 4rem;
+      padding-right: 4rem;
     }
   }
 </style>

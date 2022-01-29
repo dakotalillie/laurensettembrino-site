@@ -1,15 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { page } from "$app/stores";
   import Hamburger from "./Hamburger.svelte";
 
-  export let segment: string;
-
   const links = [
-    { href: ".", label: "Home", segment: undefined },
-    { href: "about", label: "About", segment: "about" },
-    { href: "resume", label: "Resume", segment: "resume" },
-    { href: "media", label: "Media", segment: "media" },
-    { href: "contact", label: "Contact", segment: "contact" },
+    { href: ".", label: "Home", path: "/" },
+    { href: "about", label: "About", path: "/about" },
+    { href: "resume", label: "Resume", path: "/resume" },
+    { href: "media", label: "Media", path: "/media" },
+    { href: "contact", label: "Contact", path: "/contact" },
   ];
 
   let showMobileNav = false;
@@ -32,11 +31,12 @@
     {#each links as link}
       <li>
         <a
-          aria-current={segment === link.segment ? "page" : undefined}
+          aria-current={$page.url.pathname === link.path ? "page" : undefined}
           class="p-1 pt-0"
           href={link.href}
           rel={link.href === "media" ? "prefetch" : undefined}
-          >{link.label}
+        >
+          {link.label}
         </a>
       </li>
     {/each}
@@ -50,7 +50,9 @@
     <ul class="mobile-nav">
       {#each links as link}
         <li>
-          <a class="p-1" aria-current={segment === link.segment ? "page" : undefined} href={link.href}>{link.label}</a>
+          <a class="p-1" aria-current={$page.url.pathname === link.path ? "page" : undefined} href={link.href}
+            >{link.label}</a
+          >
         </li>
       {/each}
     </ul>
@@ -63,7 +65,7 @@
   }
 
   .mobile-nav-container {
-    @apply flex items-center relative;
+    @apply flex items-center relative lg:hidden;
     grid-row: 1;
     grid-column: 3;
   }
@@ -74,11 +76,5 @@
 
   .mobile-nav li {
     @apply py-2 px-4;
-  }
-
-  @screen lg {
-    .mobile-nav-container {
-      @apply hidden;
-    }
   }
 </style>

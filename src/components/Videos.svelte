@@ -28,7 +28,9 @@
         <p>Sound: Booker T. & the M.G.’s</p>
         <p>Lighting Design: Deborah Kengmana</p>
         <p>Length: 4 minutes</p>
-        <p class="description"><em>A study of effort and a challenge to dance through its spectrum.</em></p>
+        <p class="description">
+          <em>A study of effort and a challenge to dance through its spectrum.</em>
+        </p>
         <Blockquote
           cite="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html"
           className="blockquote mr-8"

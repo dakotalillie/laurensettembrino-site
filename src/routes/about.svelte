@@ -25,7 +25,7 @@
 </svelte:head>
 
 <ContentContainer page="About">
-  <Modal className={modalContentVisible ? "opacity-100" : "opacity-0"} onClose={handleClose} let:open>
+  <Modal isVisible={modalContentVisible} onClose={handleClose} let:open>
     <button slot="trigger" on:click={open}>
       <picture>
         <source srcset="img/headshot.webp" type="image/webp" />
@@ -117,11 +117,11 @@
 
 <style>
   button {
-    @apply mb-6;
+    @apply mb-6 sm:float-left sm:mr-6 sm:mb-0;
   }
 
   img.thumbnail {
-    @apply w-full object-cover;
+    @apply w-full object-cover sm:w-auto;
 
     min-height: 24rem;
     max-height: 36rem;
@@ -141,31 +141,26 @@
     max-height: calc(var(--vh, 1vh) * 75);
   }
 
-  @screen sm {
-    button {
-      @apply float-left mr-6 mb-0;
-    }
-
+  @media screen(sm) {
     img.thumbnail {
-      @apply w-auto;
       height: 30rem;
       min-height: unset;
     }
   }
 
-  @screen lg {
+  @media screen(lg) {
     img.thumbnail {
       height: 21rem;
     }
   }
 
-  @screen xl {
+  @media screen(xl) {
     img.thumbnail {
       height: 26rem;
     }
   }
 
-  @screen 2xl {
+  @media screen(2xl) {
     img.thumbnail {
       height: 30rem;
     }

@@ -10,16 +10,10 @@
 
 <style>
   button {
-    @apply py-1 px-2 border border-white;
+    @apply py-1 px-2 border border-white md:py-2 md:px-4;
   }
 
   button[aria-pressed="true"] {
     @apply bg-white text-black;
-  }
-
-  @screen md {
-    button {
-      @apply py-2 px-4;
-    }
   }
 </style>

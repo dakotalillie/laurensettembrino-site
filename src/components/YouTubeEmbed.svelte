@@ -87,8 +87,16 @@
     height: 204px;
   }
 
+  .content .thumbnail-title-bar {
+    @apply md:text-base xl:text-lg;
+  }
+
+  .content.reel .thumbnail-title-bar {
+    @apply md:text-lg;
+  }
+
   .thumbnail-title-bar {
-    @apply absolute top-0 left-0 w-full bg-gradient-to-b from-black to-transparent text-white p-2;
+    @apply absolute top-0 left-0 w-full bg-gradient-to-b from-black to-transparent text-white p-2 sm:text-lg;
     --tw-gradient-from: rgba(0, 0, 0, 0.5);
   }
 
@@ -111,14 +119,10 @@
     width: 40pt;
   }
 
-  @screen sm {
+  @media screen(sm) {
     .content,
     .content.reel {
       height: 342px;
-    }
-
-    .thumbnail-title-bar {
-      @apply text-lg;
     }
 
     .video-icon {
@@ -127,7 +131,7 @@
     }
   }
 
-  @screen md {
+  @media screen(md) {
     .content {
       height: 185px;
     }
@@ -135,10 +139,6 @@
     .content .video-icon {
       height: 40pt;
       width: 40pt;
-    }
-
-    .content .thumbnail-title-bar {
-      @apply text-base;
     }
 
     .content.reel {
@@ -149,13 +149,9 @@
       height: 60pt;
       width: 60pt;
     }
-
-    .content.reel .thumbnail-title-bar {
-      @apply text-lg;
-    }
   }
 
-  @screen lg {
+  @media screen(lg) {
     .content {
       height: 240px;
     }
@@ -165,7 +161,7 @@
     }
   }
 
-  @screen xl {
+  @media screen(xl) {
     .content {
       height: 320px;
     }
@@ -174,13 +170,9 @@
       height: 60pt;
       width: 60pt;
     }
-
-    .content .thumbnail-title-bar {
-      @apply text-lg;
-    }
   }
 
-  @screen 2xl {
+  @media screen(2xl) {
     .content {
       height: 394px;
     }

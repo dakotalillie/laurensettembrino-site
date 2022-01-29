@@ -211,7 +211,7 @@
   function handleClick(open, index) {
     import("@splidejs/splide").then((res) => {
       // The type seems to be incorrect here
-      Splide = (res.default as any).default;
+      Splide = res.default;
       currentIndex = index;
       open();
     });
@@ -255,12 +255,7 @@
 
 <section bind:this={section}>
   {#each pictures as { id, alt, height }, index}
-    <Modal
-      className={modalContentVisible ? "opacity-100" : "opacity-0"}
-      onClose={handleClose}
-      onOpen={handleOpen}
-      let:open
-    >
+    <Modal isVisible={modalContentVisible} onClose={handleClose} onOpen={handleOpen} let:open>
       <button
         slot="trigger"
         data-height={height}
@@ -329,6 +324,10 @@
 
   button {
     align-self: start;
+  }
+
+  :global(.splide__arrow) {
+    background: #ccc !important;
   }
 
   :global(.splide__spinner) {
