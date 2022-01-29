@@ -1,5 +1,17 @@
 <script>
   import ContentContainer from "../components/ContentContainer.svelte";
+
+  const locations = {
+    angieMoon: "Triskelion Arts; Jack Crystal Theater",
+    dizzyFeet: "Los Angeles, CA",
+    icaAwards: "Rose Theater, Jazz at Lincoln Center",
+    neville: "Dixon Place; Martha Graham Studio Theater; JPAC<br />Tours to Milwaukee, WI; Westerly, RI<br />Various video projects",
+    nutcracker: "Ailey Citigroup Theater; Stamford, CT",
+    secondAve: "Jack Crystal Theater",
+    stylePoint: 'Dixon Place',
+    tisch: "Jack Crystal Theater",
+    whiteLight: "New York City Center"
+  }
 </script>
 
 <svelte:head>
@@ -30,72 +42,83 @@
   <hr />
   <h3>Professional Experience</h3>
   <div class="section-grid">
+    <p><strong>StylePointe, New York Fashion Week</strong> (2021)</p>
+    <p class="location">{locations.stylePoint}</p>
+    <p><em>Choreography by Jen Roit/Armada Dance</em></p>
+    <p class="location-mobile">{locations.stylePoint}</p>
+  </div>
+  <div class="section-grid">
     <p><strong>America-Israel Cultural Foundation’s ICA Awards</strong> (2019)</p>
-    <p class="location">Rose Theater, Jazz at Lincoln Center</p>
+    <p class="location">{locations.icaAwards}</p>
     <p>Ori Flomin's <em>Together, together</em></p>
+    <p class="location-mobile">{locations.icaAwards}</p>
   </div>
   <div class="section-grid">
     <p><strong>Angie Moon Dance Theatre</strong></p>
     <p><em>Company dancer since August 2018</em></p>
-    <p class="location">Venues throughout NYC</p>
+    <p class="location">{locations.angieMoon}</p>
     <ul>
       <li>Angie Moon Conte's <em>HUNTING YEAR, The Drowning Pine</em></li>
     </ul>
+    <p class="location-mobile">{locations.angieMoon}</p>
+    <ul>
   </div>
-  <div class="section-grid">
+  <div class="neville section-grid">
     <p><strong>Neville Dance Theatre</strong></p>
     <p><em>Company dancer since Fall 2017</em></p>
-    <div class="location">Venues throughout NYC; Milwaukee, WI</div>
+    <div class="location">{@html locations.neville}</div>
     <ul>
-      <li>Brenda Neville's <em>Exposed, Elements</em> (pointe), <em>53 Movements</em></li>
+      <li>Brenda Neville's <em>Exposed, Elements</em> (pointe), <em>Banter</em></li>
+      <li>Originated roles in <em>53 Movements</em>, <em>Beethoven Suite</em> (pointe)</li>
     </ul>
+    <div class="location-mobile">{@html locations.neville}</div>
   </div>
   <div class="balasole section-grid">
     <p><strong>BalaSole Dance Company</strong></p>
     <p><em>Featured Soloist</em> (2018)</p>
-    <p class="location1">Ailey Citigroup Theater, NYC</p>
+    <p class="location1">Ailey Citigroup Theater</p>
     <ul>
       <li>Original choreography: <em>B&ndash;Y</em></li>
     </ul>
     <p class="mt-2 md:mt-0"><em>Featured Emerging Artist</em> (2017)</p>
-    <p class="location2">Brooklyn Academy of Music (Fisher), NYC</p>
+    <p class="location2">BAM Fisher</p>
   </div>
   <div class="section-grid">
     <p><strong>Second Avenue Dance Company</strong> (2016-2017)</p>
-    <p class="location">Jack Crystal Theater, NYC</p>
+    <p class="location">{locations.secondAve}</p>
     <p>Stefanie Batten Bland's <em>Incoming</em></p>
+    <p class="location-mobile">{locations.secondAve}</p>
   </div>
   <div class="section-grid">
     <p><strong>Lincoln Center White Light Festival</strong> (2015)</p>
-    <p class="location">New York City Center, NYC</p>
+    <p class="location">{locations.whiteLight}</p>
     <p>Crystal Pite's <em>Polaris</em></p>
     <ul>
       <li>One of 60 Tisch students chosen to perform with Kidd Pivot</li>
     </ul>
+    <p class="location-mobile">{locations.whiteLight}</p>
   </div>
   <div class="section-grid">
     <p><strong>The Nutcracker NYC</strong> (2015, 2016)</p>
-    <p class="location">Ailey Citigroup Theater, NYC</p>
-    <p>Choreography and direction by Giada Ferrone</p>
+    <p class="location">{locations.nutcracker}</p>
+    <p>Choreography and direction by Giada Matteini</p>
     <ul>
       <li>Soloist and ensemble roles</li>
     </ul>
+    <p class="location-mobile">{locations.nutcracker}</p>
   </div>
   <div class="section-grid">
     <p><strong>Tisch School of the Arts, New York University</strong> (2014-2017)</p>
-    <p class="location">Jack Crystal Theater, NYC</p>
+    <p class="location">{locations.tisch}</p>
     <p>Elizabeth Coker's <em>From Then To</em></p>
     <p>Numerous contemporary and contemporary ballet student works</p>
+    <p class="location-mobile">{locations.tisch}</p>
   </div>
   <div class="section-grid">
     <p><strong>Dizzy Feet Foundation - Celebration of Dance Gala</strong> (2015)</p>
-    <p class="location">Los Angeles, CA</p>
+    <p class="location">{locations.dizzyFeet}</p>
     <p>Erin McNerney's <em>Feed the Birds</em></p>
-  </div>
-  <div class="section-grid">
-    <p><strong>Classical Repertory Experience:</strong></p>
-    <p>Variations from <em>Paquita, Don Quixote, La Fille Mal Gardee, La Bayadere</em></p>
-    <p>Grand pas from <em>Paquita</em> and <em>The Nutcracker</em></p>
+    <p class="location-mobile">{locations.dizzyFeet}</p>
   </div>
   <hr />
   <h3>Training/Education</h3>
@@ -106,7 +129,7 @@
     <ul>
       <li><em>Contemporary</em>: Rashaun Mitchell, Pamela Pietro, Elizabeth Coker, Ori Flomin</li>
       <li>
-        <em>Ballet</em>: Giada Ferrone, Cherylyn Lavagnino, James Martin, Jolinda Menendez (pointe)
+        <em>Ballet</em>: Giada Matteini, Cherylyn Lavagnino, James Martin, Jolinda Menendez (pointe)
       </li>
       <li><em>Composition and improvisation</em>: Rashaun Mitchell, Jermey Nelson, Sean Curran</li>
     </ul>
@@ -144,6 +167,14 @@
 </ContentContainer>
 
 <style>
+  .location {
+    @apply hidden md:block;
+  }
+
+  .location-mobile {
+    @apply md:hidden
+  }
+
   .subheader {
     @apply flex flex-col space-y-2 mt-6 w-full sm:flex-row sm:space-y-0 sm:space-x-4 sm:mt-4 sm:justify-center;
   }
@@ -198,6 +229,10 @@
       grid-row: 1;
       grid-column: 2;
       text-align: right;
+    }
+
+    .neville .location {
+      grid-row: 1 / 4;
     }
 
     .balasole .location1 {
