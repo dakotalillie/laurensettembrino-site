@@ -5,6 +5,20 @@
   export let segment: string;
 </script>
 
+<header>
+  <Nav {segment} />
+  <div class="logo xl:mt-0">
+    <a aria-label="Lauren Settembrino logo" href=".">
+      <Logo />
+    </a>
+  </div>
+  <ul class="text-xs flex flex-row justify-center divide-x-2 divide-red-700 mt-2 lg:text-base">
+    <li>Dancer️</li>
+    <li>Choreographer</li>
+    <li>Performer</li>
+  </ul>
+</header>
+
 <style>
   header {
     @apply w-full py-6 px-4 text-white grid;
@@ -48,17 +62,3 @@
     }
   }
 </style>
-
-<header>
-  <Nav {segment} />
-  <div class="logo xl:mt-0">
-    <a aria-label="Lauren Settembrino logo" href=".">
-      <Logo />
-    </a>
-  </div>
-  <ul class="text-xs flex flex-row justify-center divide-x-2 divide-red-700 mt-2 lg:text-base">
-    <li>Dancer️</li>
-    <li>Choreographer</li>
-    <li>Performer</li>
-  </ul>
-</header>

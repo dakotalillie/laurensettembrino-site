@@ -20,6 +20,16 @@
   });
 </script>
 
+<GlobalStyles />
+<Background {segment} />
+<div>
+  <Header {segment} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</div>
+
 <style>
   div {
     display: grid;
@@ -43,13 +53,3 @@
     overscroll-behavior-y: none;
   }
 </style>
-
-<GlobalStyles />
-<Background {segment} />
-<div>
-  <Header {segment} />
-  <main>
-    <slot />
-  </main>
-  <Footer />
-</div>

@@ -3,6 +3,11 @@
   export let className = "";
 </script>
 
+<blockquote {cite} class={className}>
+  <slot name="quote" class="quote" />
+  <slot name="attribution" class="attribution" />
+</blockquote>
+
 <style>
   blockquote {
     @apply pl-6 pt-2 pb-2 border-l-4 border-red-700 text-gray-700 leading-6;
@@ -30,8 +35,3 @@
     @apply whitespace-nowrap;
   }
 </style>
-
-<blockquote {cite} class={className}>
-  <slot name="quote" class="quote" />
-  <slot name="attribution" class="attribution" />
-</blockquote>

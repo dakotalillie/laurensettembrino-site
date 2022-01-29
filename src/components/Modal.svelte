@@ -56,6 +56,22 @@
   }
 </script>
 
+<slot name="trigger" {open}><button on:click={open}>Open Modal</button></slot>
+
+{#if isOpen}
+  <dialog class={clsx("modal", className)} on:keydown={handleKeyDown} bind:this={modal}>
+    <div class="backdrop" on:click={close} />
+    <div class="content-wrapper">
+      <header class="flex flex-row justify-end">
+        <button aria-label="Close modal" bind:this={button} on:click={close}><CloseIcon /></button>
+      </header>
+      <div class="content">
+        <slot name="content" />
+      </div>
+    </div>
+  </dialog>
+{/if}
+
 <style>
   .modal {
     @apply fixed p-0 top-0 left-0 w-full h-screen flex justify-center items-center bg-transparent;
@@ -81,19 +97,3 @@
     }
   }
 </style>
-
-<slot name="trigger" {open}><button on:click={open}>Open Modal</button></slot>
-
-{#if isOpen}
-  <dialog class={clsx('modal', className)} on:keydown={handleKeyDown} bind:this={modal}>
-    <div class="backdrop" on:click={close} />
-    <div class="content-wrapper">
-      <header class="flex flex-row justify-end">
-        <button aria-label="Close modal" bind:this={button} on:click={close}><CloseIcon /></button>
-      </header>
-      <div class="content">
-        <slot name="content" />
-      </div>
-    </div>
-  </dialog>
-{/if}

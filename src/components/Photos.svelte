@@ -253,6 +253,60 @@
   }
 </script>
 
+<section bind:this={section}>
+  {#each pictures as { id, alt, height }, index}
+    <Modal
+      className={modalContentVisible ? "opacity-100" : "opacity-0"}
+      onClose={handleClose}
+      onOpen={handleOpen}
+      let:open
+    >
+      <button
+        slot="trigger"
+        data-height={height}
+        style={`height: ${height}px`}
+        data-measuring="true"
+        on:click={() => handleClick(open, index)}
+      >
+        <IntersectionObserver top={80} once let:intersecting>
+          {#if measured && intersecting}
+            <picture>
+              <source srcset={`img/${id}.webp`} type="image/webp" />
+              <source srcset={`img/${id}.jpg`} type="image/jpeg" />
+              <img class="thumbnail" src={`img/${id}.jpg`} {alt} />
+            </picture>
+          {/if}
+        </IntersectionObserver>
+      </button>
+      <div
+        bind:this={carousel}
+        data-active={currentIndex === 0 ? "first" : currentIndex === pictures.length - 1 ? "last" : undefined}
+        class="relative"
+        slot="content"
+      >
+        <div class="splide__track">
+          <div class="splide__list">
+            {#each pictures as { id, alt, caption }}
+              <div class="splide__slide flex items-center justify-center bg-black">
+                <figure class="relative">
+                  <picture>
+                    <source data-splide-lazy-srcset={`img/${id}-full.webp`} type="image/webp" />
+                    <source data-splide-lazy-srcset={`img/${id}-full.jpg`} type="image/jpeg" />
+                    <img class="full" data-splide-lazy={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
+                  </picture>
+                </figure>
+                <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+                  {@html caption}
+                </p>
+              </div>
+            {/each}
+          </div>
+        </div>
+      </div>
+    </Modal>
+  {/each}
+</section>
+
 <style>
   section {
     --space: 0.5em;
@@ -301,54 +355,3 @@
     }
   }
 </style>
-
-<section bind:this={section}>
-  {#each pictures as { id, alt, height }, index}
-    <Modal
-      className={modalContentVisible ? 'opacity-100' : 'opacity-0'}
-      onClose={handleClose}
-      onOpen={handleOpen}
-      let:open>
-      <button
-        slot="trigger"
-        data-height={height}
-        style={`height: ${height}px`}
-        data-measuring="true"
-        on:click={() => handleClick(open, index)}>
-        <IntersectionObserver top={80} once let:intersecting>
-          {#if measured && intersecting}
-            <picture>
-              <source srcset={`img/${id}.webp`} type="image/webp" />
-              <source srcset={`img/${id}.jpg`} type="image/jpeg" />
-              <img class="thumbnail" src={`img/${id}.jpg`} {alt} />
-            </picture>
-          {/if}
-        </IntersectionObserver>
-      </button>
-      <div
-        bind:this={carousel}
-        data-active={currentIndex === 0 ? 'first' : currentIndex === pictures.length - 1 ? 'last' : undefined}
-        class="relative"
-        slot="content">
-        <div class="splide__track">
-          <div class="splide__list">
-            {#each pictures as { id, alt, caption }}
-              <div class="splide__slide flex items-center justify-center bg-black">
-                <figure class="relative">
-                  <picture>
-                    <source data-splide-lazy-srcset={`img/${id}-full.webp`} type="image/webp" />
-                    <source data-splide-lazy-srcset={`img/${id}-full.jpg`} type="image/jpeg" />
-                    <img class="full" data-splide-lazy={`img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
-                  </picture>
-                </figure>
-                <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
-                  {@html caption}
-                </p>
-              </div>
-            {/each}
-          </div>
-        </div>
-      </div>
-    </Modal>
-  {/each}
-</section>

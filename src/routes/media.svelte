@@ -30,9 +30,9 @@
   <div slot="actions">
     <MediaToggle active={activeView} setActive={setActiveView} />
   </div>
-  {#if activeView === 'photos'}
+  {#if activeView === "photos"}
     <Photos />
-  {:else if activeView === 'videos'}
+  {:else if activeView === "videos"}
     <Videos />
   {/if}
 </ContentContainer>

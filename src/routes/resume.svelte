@@ -2,84 +2,6 @@
   import ContentContainer from "../components/ContentContainer.svelte";
 </script>
 
-<style>
-  .subheader {
-    @apply flex flex-col space-y-2 mt-6 w-full;
-  }
-
-  .subheader > span:before,
-  li:before {
-    @apply mr-2 text-red-700;
-    content: "\25c6";
-  }
-
-  .section-grid {
-    @apply grid mt-8;
-    grid-template-columns: 1fr;
-  }
-
-  .section-grid > * {
-    grid-column: 1;
-  }
-
-  .content a {
-    @apply underline;
-  }
-
-  h3 {
-    @apply mt-8 font-bold text-2xl;
-  }
-
-  hr {
-    @apply mt-8 border-red-700;
-  }
-
-  @screen sm {
-    .subheader {
-      @apply flex-row space-y-0 space-x-4 mt-4 justify-center;
-    }
-
-    .subheader > span:before,
-    li:before {
-      @apply text-xl;
-      content: "\25c6";
-    }
-
-    .subheader > span:not(:first-of-type):before {
-      @apply mr-4;
-    }
-
-    .subheader > span:first-of-type:before {
-      @apply mr-0;
-      content: "";
-    }
-  }
-
-  @screen md {
-    .section-grid {
-      grid-template-columns: 1fr auto;
-    }
-
-    .section-grid .location {
-      grid-row: 1;
-      grid-column: 2;
-      text-align: right;
-    }
-
-    .balasole .location1 {
-      grid-row: 2;
-      grid-column: 2;
-      text-align: right;
-    }
-
-    .balasole .location2 {
-      grid-row: 4;
-      grid-column: 2;
-      text-align: right;
-    }
-  }
-</style>
-
 <svelte:head>
   <title>Resume | Lauren Settembrino</title>
   <meta property="og:site_name" content="Lauren Settembrino" />
@@ -206,8 +128,8 @@
   <div class="section-grid">
     <p>
       <strong>Other dance skills:</strong>
-      pointe, improvisation, contemporary and ballet partnering, choreography (concert and commercial), tap, music
-      theater, hip hop (some breaking/bboying, popping, locking, vogue)
+      pointe, improvisation, contemporary and ballet partnering, choreography (concert and commercial), tap, music theater,
+      hip hop (some breaking/bboying, popping, locking, vogue)
     </p>
   </div>
   <hr />
@@ -218,3 +140,81 @@
     </p>
   </div>
 </ContentContainer>
+
+<style>
+  .subheader {
+    @apply flex flex-col space-y-2 mt-6 w-full;
+  }
+
+  .subheader > span:before,
+  li:before {
+    @apply mr-2 text-red-700;
+    content: "\25c6";
+  }
+
+  .section-grid {
+    @apply grid mt-8;
+    grid-template-columns: 1fr;
+  }
+
+  .section-grid > * {
+    grid-column: 1;
+  }
+
+  .content a {
+    @apply underline;
+  }
+
+  h3 {
+    @apply mt-8 font-bold text-2xl;
+  }
+
+  hr {
+    @apply mt-8 border-red-700;
+  }
+
+  @screen sm {
+    .subheader {
+      @apply flex-row space-y-0 space-x-4 mt-4 justify-center;
+    }
+
+    .subheader > span:before,
+    li:before {
+      @apply text-xl;
+      content: "\25c6";
+    }
+
+    .subheader > span:not(:first-of-type):before {
+      @apply mr-4;
+    }
+
+    .subheader > span:first-of-type:before {
+      @apply mr-0;
+      content: "";
+    }
+  }
+
+  @screen md {
+    .section-grid {
+      grid-template-columns: 1fr auto;
+    }
+
+    .section-grid .location {
+      grid-row: 1;
+      grid-column: 2;
+      text-align: right;
+    }
+
+    .balasole .location1 {
+      grid-row: 2;
+      grid-column: 2;
+      text-align: right;
+    }
+
+    .balasole .location2 {
+      grid-row: 4;
+      grid-column: 2;
+      text-align: right;
+    }
+  }
+</style>

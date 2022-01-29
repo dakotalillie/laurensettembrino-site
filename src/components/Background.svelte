@@ -4,6 +4,8 @@
   $: isBlurred = segment !== undefined;
 </script>
 
+<div class:blurred={isBlurred} />
+
 <style>
   div {
     @apply h-screen fixed left-0 top-0 w-screen;
@@ -51,5 +53,3 @@
     }
   }
 </style>
-
-<div class:blurred={isBlurred} />

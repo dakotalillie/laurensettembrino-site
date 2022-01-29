@@ -27,6 +27,36 @@
   });
 </script>
 
+<nav class="hidden flex-row justify-start thing lg:flex">
+  <ul class="flex flex-row justify-center space-x-4">
+    {#each links as link}
+      <li>
+        <a
+          aria-current={segment === link.segment ? "page" : undefined}
+          class="p-1 pt-0"
+          href={link.href}
+          rel={link.href === "media" ? "prefetch" : undefined}
+          >{link.label}
+        </a>
+      </li>
+    {/each}
+  </ul>
+</nav>
+<div class="mobile-nav-container">
+  <button aria-label="Toggle mobile nav menu" class="ml-4" bind:this={hamburgerButton} on:click={toggleNav}>
+    <Hamburger />
+  </button>
+  {#if showMobileNav}
+    <ul class="mobile-nav">
+      {#each links as link}
+        <li>
+          <a class="p-1" aria-current={segment === link.segment ? "page" : undefined} href={link.href}>{link.label}</a>
+        </li>
+      {/each}
+    </ul>
+  {/if}
+</div>
+
 <style>
   a[aria-current="page"] {
     @apply border-b-2 border-red-700;
@@ -52,32 +82,3 @@
     }
   }
 </style>
-
-<nav class="hidden flex-row justify-start thing lg:flex">
-  <ul class="flex flex-row justify-center space-x-4">
-    {#each links as link}
-      <li>
-        <a
-          aria-current={segment === link.segment ? 'page' : undefined}
-          class="p-1 pt-0"
-          href={link.href}
-          rel={link.href === 'media' ? 'prefetch' : undefined}>{link.label}
-        </a>
-      </li>
-    {/each}
-  </ul>
-</nav>
-<div class="mobile-nav-container">
-  <button aria-label="Toggle mobile nav menu" class="ml-4" bind:this={hamburgerButton} on:click={toggleNav}>
-    <Hamburger />
-  </button>
-  {#if showMobileNav}
-    <ul class="mobile-nav">
-      {#each links as link}
-        <li>
-          <a class="p-1" aria-current={segment === link.segment ? 'page' : undefined} href={link.href}>{link.label}</a>
-        </li>
-      {/each}
-    </ul>
-  {/if}
-</div>
