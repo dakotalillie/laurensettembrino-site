@@ -8,21 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "16"
       - name: Install dependencies
         run: npm ci
       - name: Build assets
-        run: npm run export
-      - name: Delete everything but the '__sapper__' directory
+        run: npm run build
+      - name: Delete everything but the 'build' directory
         run: |
           find . -type f -maxdepth 1 -exec rm -f {} +
-          find . ! \( -name '.' -o -name '..' -o -name '.git' -o -name '__sapper__' \) -type d -maxdepth 1 -exec rm -rf {} +
-      - name: Move the '__sapper__/export' directory contents up to the root
+          find . ! \( -name '.' -o -name '..' -o -name '.git' -o -name 'build' \) -type d -maxdepth 1 -exec rm -rf {} +
+      - name: Move the 'build' directory contents up to the root
         run: |
-          mv __sapper__/export/* .
-          rm -rf __sapper__
+          mv build/* .
+          rm -rf build
       - name: Create CNAME file
         run: |
           echo "www.laurensettembrino.com" > CNAME
