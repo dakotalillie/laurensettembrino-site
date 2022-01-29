@@ -26,6 +26,8 @@ jobs:
       - name: Create CNAME file
         run: |
           echo "www.laurensettembrino.com" > CNAME
+      - name: Create nojekyll file
+        run: touch .nojekyll
       - name: Configure git
         run: |
           git config --local user.email "dakota.lillie@icloud.com"
