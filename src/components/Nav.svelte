@@ -4,11 +4,11 @@
   import Hamburger from "./Hamburger.svelte";
 
   const links = [
-    { href: ".", label: "Home", path: "/" },
-    { href: "about", label: "About", path: "/about" },
-    { href: "resume", label: "Resume", path: "/resume" },
-    { href: "media", label: "Media", path: "/media" },
-    { href: "contact", label: "Contact", path: "/contact" },
+    { href: "/", label: "Home", path: "/" },
+    { href: "/about", label: "About", path: "/about" },
+    { href: "/resume", label: "Resume", path: "/resume" },
+    { href: "/media", label: "Media", path: "/media" },
+    { href: "/contact", label: "Contact", path: "/contact" },
   ];
 
   let showMobileNav = false;
