@@ -7,7 +7,7 @@
   <section>
     <h2 class="mb-4 sm:hidden sm:mb-0">Dance Reel</h2>
     <div class="reel">
-      <YouTubeEmbed isReel videoId="bnrbjHcfaFM" />
+      <YouTubeEmbed isReel videoId="MibFXPS87EU" />
     </div>
   </section>
   <section class="space-y-4">
