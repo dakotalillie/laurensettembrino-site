@@ -6,7 +6,16 @@
   import "@splidejs/splide/dist/css/themes/splide-default.min.css";
   import IntersectionObserver from "./IntersectionObserver.svelte";
 
+  // Andrew Mauney
+  // Flee porneia by Lauren Settembrino
+
   const pictures = [
+    {
+      id: "29",
+      alt: "Lauren Settembrino in white pants kneels while clutching chest",
+      caption: "Photo Credit: Andrew Mauney / <em>Flee porneia</em> by Lauren Settembrino",
+      height: 333,
+    },
     {
       id: "18",
       alt: "Lauren Settembrino in green shirt hinges backward toward floor",
@@ -24,6 +33,12 @@
       alt: "Lauren Settembrino, in pink, white, and gray leotard, performs layout with leg in attitude front",
       caption: "Photo Credit: Alex Tenreiro Theis",
       height: 317,
+    },
+    {
+      id: "26",
+      alt: "Lauren Settembrino, wearing all white, arches back in center split",
+      caption: "Photo Credit: Andrew Mauney / <em>Flee porneia</em> by Lauren Settembrino",
+      height: 333,
     },
     {
       id: "1",
@@ -68,6 +83,12 @@
       height: 333,
     },
     {
+      id: "27",
+      alt: "Lauren Settembrino, facing away from camera, squats with head turned toward side",
+      caption: "Photo Credit: Andrew Mauney / <em>Flee porneia</em> by Lauren Settembrino",
+      height: 333,
+    },
+    {
       id: "15",
       alt: "Spotlight on Lauren Settembrino in arabesque holding on to group of dancers",
       caption: "Photo Credit: Benny Krown / <em>The Drowning Pine</em>, Angie Moon Dance Theatre",
@@ -84,6 +105,12 @@
       alt: "Lauren Settembrino, on pointe, hinges away from hands pushing down",
       caption: "Neville Dance Theatre",
       height: 715,
+    },
+    {
+      id: "28",
+      alt: "Lauren Settembrino, wearing all white, moving away from outstretched hand",
+      caption: "Photo Credit: Andrew Mauney / <em>Flee porneia</em> by Lauren Settembrino",
+      height: 750,
     },
     {
       id: "20",
