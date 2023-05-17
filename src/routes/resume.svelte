@@ -48,7 +48,7 @@
     <p>Company dancer since August 2018</p>
     <p>Angie Moon Conte’s:</p>
     <ul>
-      <li><em>Mylar, cellophane, light, and us</em> (2023) | WestFest Dance Fesaval, Westbeth Artists' Residence, NYC, with visuals by Benny Krown</li>
+      <li><em>Mylar, cellophane, light, and us</em> (2023) | WestFest Dance Festival, Westbeth Artists' Residence, NYC, with visuals by Benny Krown</li>
       <li><em>The Drowning Pine</em> (2019) | Jack Crystal Theatre</li>
       <li><em>HUNTING YEAR</em> (2018) | Triskelion Arts</li>
     </ul>
@@ -64,7 +64,7 @@
       <li><em>In Earnest by Byron Lars</em> (2021, headliner) | choreography by Jen Roit/Armada Dance at StylePointe New York Fashion Week</li>
       <li>Ori Flomin’s <em>Together, together</em> (2019) | America-Israel Cultural Foundation’s ICA Awards, Rose Theatre, Jazz at Lincoln Center</li>
       <li>BalaSole Dance Company Featured Emerging Arast (2017) | BAM Fisher</li>
-      <li>Crystal Pite’s <em>Polaris</em> (2015) | Lincoln Center White Light Fesaval, New York City Center</li>
+      <li>Crystal Pite’s <em>Polaris</em> (2015) | Lincoln Center White Light Festival, New York City Center</li>
       <li>Erin McNerney’s <em>Feed the Birds</em> (2015) | Dizzy Feet Foundation Celebration of Dance Gala, The Novo, Los Angeles, CA</li>
     </ul>
   </div>
