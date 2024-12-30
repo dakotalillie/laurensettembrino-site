@@ -1,0 +1,1 @@
+import{a as v,t as i}from"./disclose-version.BKaANA2z.js";import"./legacy.CPMm7L8q.js";var o=i('<div class="spinner svelte-go9f7r"><div class="bounce1 svelte-go9f7r"></div> <div class="bounce2 svelte-go9f7r"></div> <div class="bounce3 svelte-go9f7r"></div></div>');function t(e){var s=o();v(e,s)}export{t as S};
