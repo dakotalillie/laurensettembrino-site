@@ -12,7 +12,7 @@
   </section>
   <section class="space-y-4">
     <h2>Dance Bites</h2>
-    <div class="grid grid-cols-1 gap-2 md:grid-cols-2 ">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
       <YouTubeEmbed videoId="q5vMiz7ZPbg" />
       <YouTubeEmbed videoId="jvpsTchGnFY" />
       <YouTubeEmbed videoId="iCOW7laCRac" />
@@ -35,11 +35,11 @@
           cite="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html"
           className="blockquote mr-8"
         >
-          <span slot="quote" let:class={className} class={className}>
+          {#snippet quote()}
             The solo, entitled <strong>B&ndash;Y</strong>, was performed with total, devil-may-care assurance by Ms.
             Settembrino, a natural mover whose energy and space-covering combinations suited the music to perfection.
-          </span>
-          <span slot="attribution" let:class={className} class={className}>
+          {/snippet}
+          {#snippet attribution()}
             —
             <a
               href="https://oberon481.typepad.com/oberons_grove/2018/08/balasole-presents-mezcla.html"
@@ -48,7 +48,7 @@
             >
               Oberon’s Grove
             </a>
-          </span>
+          {/snippet}
         </Blockquote>
       </YouTubeEmbed>
       <YouTubeEmbed hasCaption videoId="GBNGa4-cHc4">
@@ -62,7 +62,7 @@
         <p class="description">
           <em>
             By working its way through and beyond the proscenium,
-            <strong>and being able to share that with someone is an amazing thing </strong>portrays deep sadness,
+            <strong>and being able to share that with someone is an amazing thing</strong>{" "}portrays deep sadness,
             particularly in the context of experiencing it around others. It leans on images of conflict, need, and
             impulsive fears to paint its picture.
           </em>

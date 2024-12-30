@@ -1,9 +1,9 @@
 <script>
-  import ContentContainer from "../components/ContentContainer.svelte";
-  import Modal from "../components/Modal.svelte";
-  import Blockquote from "../components/Blockquote.svelte";
+  import ContentContainer from "$lib/ContentContainer.svelte";
+  import Modal from "$lib/Modal.svelte";
+  import Blockquote from "$lib/Blockquote.svelte";
 
-  let modalContentVisible = false;
+  let modalContentVisible = $state(false);
 
   function handleLoad() {
     modalContentVisible = true;
@@ -25,24 +25,28 @@
 </svelte:head>
 
 <ContentContainer page="About">
-  <Modal isVisible={modalContentVisible} onClose={handleClose} let:open>
-    <button slot="trigger" on:click={open}>
-      <picture>
-        <source srcset="/img/headshot.webp" type="image/webp" />
-        <source srcset="/img/headshot.jpg" type="image/jpeg" />
-        <img width="340px" height="510px" class="thumbnail" src="/img/headshot.jpg" alt="Headshot" />
-      </picture>
-    </button>
-    <figure class="relative" slot="content">
-      <picture>
-        <source srcset="/img/headshot-full.webp" type="image/webp" />
-        <source srcset="/img/headshot-full.jpg" type="image/jpeg" />
-        <img class="full" src="/img/headshot-full.jpg" alt="Headshot" on:load={handleLoad} />
-      </picture>
-      <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
-        Photo Credit: Travis Magee
-      </figcaption>
-    </figure>
+  <Modal isVisible={modalContentVisible} onClose={handleClose}>
+    {#snippet trigger(open)}
+      <button onclick={open}>
+        <picture>
+          <source srcset="/img/headshot.webp" type="image/webp" />
+          <source srcset="/img/headshot.jpg" type="image/jpeg" />
+          <img width="340px" height="510px" class="thumbnail" src="/img/headshot.jpg" alt="Headshot" />
+        </picture>
+      </button>
+    {/snippet}
+    {#snippet content()}
+      <figure class="relative">
+        <picture>
+          <source srcset="/img/headshot-full.webp" type="image/webp" />
+          <source srcset="/img/headshot-full.jpg" type="image/jpeg" />
+          <img class="full" src="/img/headshot-full.jpg" alt="Headshot" onload={handleLoad} />
+        </picture>
+        <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+          Photo Credit: Travis Magee
+        </figcaption>
+      </figure>
+    {/snippet}
   </Modal>
   <div class="space-y-6 md:text-lg">
     <h2>About the Artist</h2>
@@ -58,15 +62,17 @@
     </p>
     <div class="w-auto overflow-hidden">
       <Blockquote className="md:mx-8">
-        <span slot="quote" let:class={className} class={className}
-          ><em
-            >Lauren has a specificity and exactness to the ways she moves. She has deep understanding and appreciation
+        {#snippet quote()}
+          <em>
+            Lauren has a specificity and exactness to the ways she moves. She has deep understanding and appreciation
             for classical forms, and a willingness to explore and play with new ideas. Her technique is clean and
             powerful in a way that slowly draws you in, and then keeps you there with an honest and nuanced performance
-            quality.</em
-          ></span
-        >
-        <span slot="attribution" let:class={className} class={className}> — Angie Moon Conte</span>
+            quality.
+          </em>
+        {/snippet}
+        {#snippet attribution()}
+          — Angie Moon Conte
+        {/snippet}
       </Blockquote>
     </div>
     <h2>Artist Bio</h2>
@@ -101,68 +107,22 @@
     </p>
     <div class="w-auto overflow-hidden">
       <Blockquote className="md:mx-8">
-        <span slot="quote" let:class={className} class={className}
-          ><em
-            >Beyond Lauren’s incredible technical prowess, she also brings a calm and warm presence to the rehearsal
+        {#snippet quote()}
+          <em>
+            Beyond Lauren’s incredible technical prowess, she also brings a calm and warm presence to the rehearsal
             space. She is a brilliant mind, and makes connections within the work that I often don’t even find myself.
             She is communicative, reliable, and the kind of artist who fully commits to every project she is a part of.
-            She is a grounding presence for the group, and for me. It’s an honor to work alongside her.</em
-          ></span
-        >
-        <span slot="attribution" let:class={className} class={className}> — Angie Moon Conte</span>
+            She is a grounding presence for the group, and for me. It’s an honor to work alongside her.
+          </em>
+        {/snippet}
+        {#snippet attribution()}
+          — Angie Moon Conte
+        {/snippet}
       </Blockquote>
     </div>
   </div>
 </ContentContainer>
 
 <style>
-  button {
-    @apply mb-6 sm:float-left sm:mr-6 sm:mb-0;
-  }
-
-  img.thumbnail {
-    @apply w-full object-cover sm:w-auto;
-
-    min-height: 24rem;
-    max-height: 36rem;
-    object-position: center top;
-  }
-
-  h2 {
-    @apply text-2xl font-bold;
-  }
-
-  a {
-    @apply underline;
-  }
-
-  img.full {
-    max-width: 100%;
-    max-height: calc(var(--vh, 1vh) * 75);
-  }
-
-  @media screen(sm) {
-    img.thumbnail {
-      height: 30rem;
-      min-height: unset;
-    }
-  }
-
-  @media screen(lg) {
-    img.thumbnail {
-      height: 21rem;
-    }
-  }
-
-  @media screen(xl) {
-    img.thumbnail {
-      height: 26rem;
-    }
-  }
-
-  @media screen(2xl) {
-    img.thumbnail {
-      height: 30rem;
-    }
-  }
+  @import "./about.css";
 </style>

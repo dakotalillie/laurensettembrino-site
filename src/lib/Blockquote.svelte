@@ -1,11 +1,23 @@
 <script lang="ts">
-  export let cite = "";
-  export let className = "";
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    cite?: string;
+    className?: string;
+    quote: Snippet<[]>;
+    attribution: Snippet<[]>;
+  }
+
+  let { cite = "", className = "", quote, attribution }: Props = $props();
 </script>
 
 <blockquote {cite} class={className}>
-  <slot name="quote" class="quote" />
-  <slot name="attribution" class="attribution" />
+  <span class="quote">
+    {@render quote()}
+  </span>
+  <span class="attribution">
+    {@render attribution()}
+  </span>
 </blockquote>
 
 <style>

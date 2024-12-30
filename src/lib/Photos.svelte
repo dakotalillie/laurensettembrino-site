@@ -1,13 +1,10 @@
 <script lang="ts">
   import { onMount, tick } from "svelte";
   import Modal from "./Modal.svelte";
-  import debounce from "../utils/debounce";
+  import debounce from "./debounce";
 
   import "@splidejs/splide/dist/css/themes/splide-default.min.css";
   import IntersectionObserver from "./IntersectionObserver.svelte";
-
-  // Andrew Mauney
-  // Flee porneia by Lauren Settembrino
 
   const pictures = [
     {
@@ -189,25 +186,25 @@
   const MAX_COLUMN_WIDTH = 500;
   const ELEMENT_NODE_TYPE = 1;
 
-  let section: HTMLElement;
+  let section = $state<HTMLElement>();
   let gap: number;
   let items: HTMLElement[];
-  let modalContentVisible = false;
-  let measured = false;
-  let carousel;
-  let Splide;
-  let splideInstance;
-  let currentIndex;
+  let modalContentVisible = $state(false);
+  let measured = $state(false);
+  let carousel = $state();
+  let Splide: any;
+  let splideInstance: any;
+  let currentIndex = $state();
 
   const layout = debounce(() => {
-    const numberOfColumns = Math.ceil(section.clientWidth / MAX_COLUMN_WIDTH);
+    const numberOfColumns = Math.ceil(section!.clientWidth / MAX_COLUMN_WIDTH);
     const allGapsWidth = (numberOfColumns - 1) * gap;
-    const width = (section.clientWidth - allGapsWidth) / numberOfColumns;
+    const width = (section!.clientWidth - allGapsWidth) / numberOfColumns;
 
-    section.style.gridTemplateColumns = `repeat(${numberOfColumns}, ${width}px)`;
+    section!.style.gridTemplateColumns = `repeat(${numberOfColumns}, ${width}px)`;
     items.forEach((c) => {
       c.style.removeProperty("margin-top");
-      c.style.height = `${+c.dataset.height * (width / MAX_COLUMN_WIDTH)}px`;
+      c.style.height = `${+c.dataset.height! * (width / MAX_COLUMN_WIDTH)}px`;
     });
 
     if (numberOfColumns > 1) {
@@ -222,8 +219,8 @@
   }, 250);
 
   onMount(() => {
-    gap = parseFloat(getComputedStyle(section).gridRowGap);
-    items = Array.from(section.childNodes).filter((c): c is HTMLElement => {
+    gap = parseFloat(getComputedStyle(section!).gridRowGap);
+    items = Array.from(section!.childNodes).filter((c): c is HTMLElement => {
       return c.nodeType === ELEMENT_NODE_TYPE && (c as HTMLElement).tagName === "BUTTON";
     });
     layout();
@@ -235,7 +232,7 @@
     modalContentVisible = true;
   }
 
-  function handleClick(open, index) {
+  function handleClick(open: () => void, index: number) {
     import("@splidejs/splide").then((res) => {
       // The type seems to be incorrect here
       Splide = res.default;
@@ -246,7 +243,7 @@
 
   function handleCarouselResize() {
     tick().then(() => {
-      const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper"));
+      const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper")!);
       splideInstance.options.fixedWidth =
         parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2;
     });
@@ -254,7 +251,7 @@
 
   function handleOpen() {
     tick().then(() => {
-      const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper"));
+      const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper")!);
       splideInstance = new Splide(carousel, {
         autoHeight: true,
         fixedWidth: parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2,
@@ -267,7 +264,7 @@
         start: currentIndex,
         type: "fade",
       }).mount();
-      splideInstance.on("moved", (newIndex) => (currentIndex = newIndex));
+      splideInstance.on("moved", (newIndex: number) => (currentIndex = newIndex));
       addEventListener("resize", handleCarouselResize);
     });
   }
@@ -282,49 +279,53 @@
 
 <section bind:this={section}>
   {#each pictures as { id, alt, height }, index}
-    <Modal isVisible={modalContentVisible} onClose={handleClose} onOpen={handleOpen} let:open>
-      <button
-        slot="trigger"
-        data-height={height}
-        style={`height: ${height}px`}
-        data-measuring="true"
-        on:click={() => handleClick(open, index)}
-      >
-        <IntersectionObserver top={80} once let:intersecting>
-          {#if measured && intersecting}
-            <picture>
-              <source srcset={`/img/${id}.webp`} type="image/webp" />
-              <source srcset={`/img/${id}.jpg`} type="image/jpeg" />
-              <img class="thumbnail" src={`/img/${id}.jpg`} {alt} />
-            </picture>
-          {/if}
-        </IntersectionObserver>
-      </button>
-      <div
-        bind:this={carousel}
-        data-active={currentIndex === 0 ? "first" : currentIndex === pictures.length - 1 ? "last" : undefined}
-        class="relative"
-        slot="content"
-      >
-        <div class="splide__track">
-          <div class="splide__list">
-            {#each pictures as { id, alt, caption }}
-              <div class="splide__slide flex items-center justify-center bg-black">
-                <figure class="relative">
-                  <picture>
-                    <source data-splide-lazy-srcset={`/img/${id}-full.webp`} type="image/webp" />
-                    <source data-splide-lazy-srcset={`/img/${id}-full.jpg`} type="image/jpeg" />
-                    <img class="full" data-splide-lazy={`/img/${id}-full.jpg`} {alt} on:load={handleLoadFull} />
-                  </picture>
-                </figure>
-                <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
-                  {@html caption}
-                </p>
-              </div>
-            {/each}
+    <Modal isVisible={modalContentVisible} onClose={handleClose} onOpen={handleOpen}>
+      {#snippet trigger(open)}
+        <button
+          data-height={height}
+          style={`height: ${height}px`}
+          data-measuring="true"
+          onclick={() => handleClick(open, index)}
+        >
+          <IntersectionObserver top={80} once>
+            {#snippet children({ intersecting })}
+              {#if measured && intersecting}
+                <picture>
+                  <source srcset={`/img/${id}.webp`} type="image/webp" />
+                  <source srcset={`/img/${id}.jpg`} type="image/jpeg" />
+                  <img class="thumbnail" src={`/img/${id}.jpg`} {alt} />
+                </picture>
+              {/if}
+            {/snippet}
+          </IntersectionObserver>
+        </button>
+      {/snippet}
+      {#snippet content()}
+        <div
+          bind:this={carousel}
+          data-active={currentIndex === 0 ? "first" : currentIndex === pictures.length - 1 ? "last" : undefined}
+          class="relative"
+        >
+          <div class="splide__track">
+            <div class="splide__list">
+              {#each pictures as { id, alt, caption }}
+                <div class="splide__slide flex items-center justify-center bg-black">
+                  <figure class="relative">
+                    <picture>
+                      <source data-splide-lazy-srcset={`/img/${id}-full.webp`} type="image/webp" />
+                      <source data-splide-lazy-srcset={`/img/${id}-full.jpg`} type="image/jpeg" />
+                      <img class="full" data-splide-lazy={`/img/${id}-full.jpg`} {alt} onload={handleLoadFull} />
+                    </picture>
+                  </figure>
+                  <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+                    {@html caption}
+                  </p>
+                </div>
+              {/each}
+            </div>
           </div>
         </div>
-      </div>
+      {/snippet}
     </Modal>
   {/each}
 </section>

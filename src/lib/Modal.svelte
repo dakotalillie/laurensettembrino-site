@@ -1,22 +1,32 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import { onDestroy, tick } from "svelte";
   import { createFocusTrap } from "focus-trap";
   import { enableBodyScroll, disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
   import CloseIcon from "./CloseIcon.svelte";
   import type { FocusTrap } from "focus-trap";
 
-  export let isVisible = false;
-  export let onOpen = () => {};
-  export let onClose = () => {};
+  interface Props {
+    isVisible?: boolean;
+    onOpen?: any;
+    onClose?: any;
+    trigger?: Snippet<[() => void]>;
+    content?: Snippet;
+  }
 
-  let modal: HTMLDialogElement;
-  let button: HTMLButtonElement;
+  let { isVisible = false, onOpen = () => {}, onClose = () => {}, trigger, content }: Props = $props();
+
+  let modal = $state<HTMLDialogElement>();
+  let button = $state<HTMLButtonElement>();
   let focusTrap: FocusTrap;
-  let isOpen = false;
+  let isOpen = $state(false);
+
   const open = () => {
+    console.log("open called");
     isOpen = true;
     onOpen();
   };
+
   const close = () => {
     isOpen = false;
     onClose();
@@ -27,6 +37,7 @@
   });
 
   async function enableLocks() {
+    if (modal === undefined) return;
     await tick();
     focusTrap = createFocusTrap(modal, {
       escapeDeactivates: false,
@@ -42,11 +53,13 @@
     modal && enableBodyScroll(modal);
   }
 
-  $: if (isOpen) {
-    enableLocks();
-  } else if (!isOpen) {
-    disableLocks();
-  }
+  $effect(() => {
+    if (isOpen) {
+      enableLocks();
+    } else if (!isOpen) {
+      disableLocks();
+    }
+  });
 
   function handleKeyDown(e: KeyboardEvent) {
     if (e.key === "Escape") {
@@ -55,17 +68,21 @@
   }
 </script>
 
-<slot name="trigger" {open}><button on:click={open}>Open Modal</button></slot>
+{#if trigger}
+  {@render trigger(open)}
+{:else}
+  <button onclick={open}>Open Modal</button>
+{/if}
 
 {#if isOpen}
-  <dialog class="modal" class:visible={isVisible} on:keydown={handleKeyDown} bind:this={modal}>
-    <div class="backdrop" on:click={close} />
+  <dialog class="modal" class:visible={isVisible} onkeydown={handleKeyDown} bind:this={modal}>
+    <div class="backdrop" onclick={close}></div>
     <div class="content-wrapper">
       <header class="flex flex-row justify-end">
-        <button aria-label="Close modal" bind:this={button} on:click={close}><CloseIcon /></button>
+        <button aria-label="Close modal" bind:this={button} onclick={close}><CloseIcon /></button>
       </header>
       <div class="content">
-        <slot name="content" />
+        {@render content?.()}
       </div>
     </div>
   </dialog>

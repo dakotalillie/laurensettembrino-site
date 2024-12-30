@@ -1,0 +1,15 @@
+svg {
+  width: min(100%, 20rem);
+}
+
+@media screen(lg) {
+  svg {
+    width: 30rem;
+  }
+}
+
+@media screen(xl) {
+  svg {
+    width: 36rem;
+  }
+}

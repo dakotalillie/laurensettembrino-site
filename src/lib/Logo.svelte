@@ -179,19 +179,5 @@ c23 -22 34 -26 59 -20 43 9 87 49 101 89 9 27 8 42 -5 73 -29 72 -95 82 -192
 </svg>
 
 <style>
-  svg {
-    width: min(100%, 20rem);
-  }
-
-  @media screen(lg) {
-    svg {
-      width: 30rem;
-    }
-  }
-
-  @media screen(xl) {
-    svg {
-      width: 36rem;
-    }
-  }
+  @import "./Logo.css";
 </style>

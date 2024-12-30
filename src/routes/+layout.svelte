@@ -1,10 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Background from "../components/Background.svelte";
-  import Header from "../components/Header.svelte";
-  import Footer from "../components/Footer.svelte";
-  import debounce from "../utils/debounce";
+  import Background from "$lib/Background.svelte";
+  import Header from "$lib/Header.svelte";
+  import Footer from "$lib/Footer.svelte";
+  import debounce from "$lib/debounce";
   import "../app.css";
+
+  let { children } = $props();
 
   const measureVh = debounce(() => {
     const vh = window.innerHeight * 0.01;
@@ -22,7 +24,7 @@
 <div>
   <Header />
   <main>
-    <slot />
+    {@render children?.()}
   </main>
   <Footer />
 </div>

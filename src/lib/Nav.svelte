@@ -11,13 +11,13 @@
     { href: "/contact", label: "Contact", path: "/contact" },
   ];
 
-  let showMobileNav = false;
-  let hamburgerButton: HTMLButtonElement;
+  let showMobileNav = $state(false);
+  let hamburgerButton = $state<HTMLButtonElement>();
   const toggleNav = () => (showMobileNav = !showMobileNav);
 
   onMount(() => {
     const listener = (event: MouseEvent) => {
-      if (!hamburgerButton.contains(event.target as Node)) {
+      if (!hamburgerButton?.contains(event.target as Node)) {
         showMobileNav = false;
       }
     };
@@ -43,7 +43,7 @@
   </ul>
 </nav>
 <div class="mobile-nav-container">
-  <button aria-label="Toggle mobile nav menu" class="ml-4" bind:this={hamburgerButton} on:click={toggleNav}>
+  <button aria-label="Toggle mobile nav menu" class="ml-4" bind:this={hamburgerButton} onclick={toggleNav}>
     <Hamburger />
   </button>
   {#if showMobileNav}

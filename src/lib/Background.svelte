@@ -1,10 +1,10 @@
 <script lang="ts">
   import { page } from "$app/stores";
 
-  $: isBlurred = $page.url.pathname !== "/";
+  let isBlurred = $derived($page.url.pathname !== "/");
 </script>
 
-<div class:blurred={isBlurred} />
+<div class:blurred={isBlurred}></div>
 
 <style>
   div {

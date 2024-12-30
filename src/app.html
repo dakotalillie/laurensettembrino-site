@@ -6,9 +6,7 @@
     <meta name="theme-color" content="#333333" />
     <meta name="description" content="Lauren Settembrino is a dancer and choreographer based in New York City." />
     <meta name="author" content="Dakota Lillie" />
-
-    %svelte.head%
-
+		%sveltekit.head%
     <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -19,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="/js/modernizr.js" defer></script>
   </head>
-  <body>
-    <div id="svelte">%svelte.body%</div>
-  </body>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
 </html>

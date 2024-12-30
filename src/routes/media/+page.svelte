@@ -1,11 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import ContentContainer from "../components/ContentContainer.svelte";
-  import MediaToggle from "../components/MediaToggle.svelte";
-  import Photos from "../components/Photos.svelte";
-  import Videos from "../components/Videos.svelte";
+  import ContentContainer from "$lib/ContentContainer.svelte";
+  import MediaToggle from "$lib/MediaToggle.svelte";
+  import Photos from "$lib/Photos.svelte";
+  import Videos from "$lib/Videos.svelte";
 
-  let activeView: "photos" | "videos" | undefined;
+  let activeView = $state<"photos" | "videos">("photos");
+
   const setActiveView = (newActiveView: "photos" | "videos") => {
     activeView = newActiveView;
     window.location.hash = `#${newActiveView}`;
@@ -27,9 +28,11 @@
 </svelte:head>
 
 <ContentContainer page="Media">
-  <div slot="actions">
-    <MediaToggle active={activeView} setActive={setActiveView} />
-  </div>
+  {#snippet actions()}
+    <div>
+      <MediaToggle active={activeView} setActive={setActiveView} />
+    </div>
+  {/snippet}
   {#if activeView === "photos"}
     <Photos />
   {:else if activeView === "videos"}

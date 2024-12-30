@@ -1,0 +1,49 @@
+button {
+  @apply mb-6 sm:float-left sm:mr-6 sm:mb-0;
+}
+
+img.thumbnail {
+  @apply w-full object-cover sm:w-auto;
+
+  min-height: 24rem;
+  max-height: 36rem;
+  object-position: center top;
+}
+
+h2 {
+  @apply text-2xl font-bold;
+}
+
+a {
+  @apply underline;
+}
+
+img.full {
+  max-width: 100%;
+  max-height: calc(var(--vh, 1vh) * 75);
+}
+
+@media screen(sm) {
+  img.thumbnail {
+    height: 30rem;
+    min-height: unset;
+  }
+}
+
+@media screen(lg) {
+  img.thumbnail {
+    height: 21rem;
+  }
+}
+
+@media screen(xl) {
+  img.thumbnail {
+    height: 26rem;
+  }
+}
+
+@media screen(2xl) {
+  img.thumbnail {
+    height: 30rem;
+  }
+}

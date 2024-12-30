@@ -1,15 +1,15 @@
 <script lang="ts">
-  import ContentContainer from "../components/ContentContainer.svelte";
-  import Spinner from "../components/Spinner.svelte";
-  import Modal from "../components/Modal.svelte";
+  import ContentContainer from "$lib/ContentContainer.svelte";
+  import Spinner from "$lib/Spinner.svelte";
+  import Modal from "$lib/Modal.svelte";
 
-  let name = "";
-  let email = "";
-  let subject = "";
-  let message = "";
-  let requestStatus = "";
+  let name = $state("");
+  let email = $state("");
+  let subject = $state("");
+  let message = $state("");
+  let requestStatus = $state("");
 
-  let modalContentVisible = false;
+  let modalContentVisible = $state(false);
 
   function handleLoad() {
     modalContentVisible = true;
@@ -48,33 +48,37 @@
 </svelte:head>
 
 <ContentContainer page="Contact">
-  <div class="grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2 ">
-    <Modal isVisible={modalContentVisible} onClose={handleClose} let:open>
-      <button class="flex items-stretch" slot="trigger" on:click={open}>
-        <picture>
-          <source srcset="/img/contact.webp" type="image/webp" />
-          <source srcset="/img/contact.jpg" type="image/jpeg" />
-          <img class="thumbnail" src="/img/contact.jpg" alt="Contact" />
-        </picture>
-      </button>
-      <figure class="relative" slot="content">
-        <picture>
-          <source srcset="/img/10-full.webp" type="image/webp" />
-          <source srcset="/img/10-full.jpg" type="image/jpeg" />
-          <!-- svelte-ignore a11y-img-redundant-alt -->
-          <img
-            class="full"
-            src="/img/10-full.jpg"
-            alt="Black and white photo of Lauren Settembrino looking away with one arm extended"
-            on:load={handleLoad}
-          />
-        </picture>
-        <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
-          Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal
-        </figcaption>
-      </figure>
+  <div class="grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2">
+    <Modal isVisible={modalContentVisible} onClose={handleClose}>
+      {#snippet trigger(open)}
+        <button class="flex items-stretch" onclick={open}>
+          <picture>
+            <source srcset="/img/contact.webp" type="image/webp" />
+            <source srcset="/img/contact.jpg" type="image/jpeg" />
+            <img class="thumbnail" src="/img/contact.jpg" alt="Contact" />
+          </picture>
+        </button>
+      {/snippet}
+      {#snippet content()}
+        <figure class="relative">
+          <picture>
+            <source srcset="/img/10-full.webp" type="image/webp" />
+            <source srcset="/img/10-full.jpg" type="image/jpeg" />
+            <!-- svelte-ignore a11y_img_redundant_alt -->
+            <img
+              class="full"
+              src="/img/10-full.jpg"
+              alt="Black and white photo of Lauren Settembrino looking away with one arm extended"
+              onload={handleLoad}
+            />
+          </picture>
+          <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+            Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal
+          </figcaption>
+        </figure>
+      {/snippet}
     </Modal>
-    <form class="space-y-4" on:submit={handleSubmit}>
+    <form class="space-y-4" onsubmit={handleSubmit}>
       <label>
         <p>Name</p>
         <input bind:value={name} required />
@@ -89,7 +93,7 @@
       </label>
       <label>
         <p>Message</p>
-        <textarea bind:value={message} required />
+        <textarea bind:value={message} required></textarea>
       </label>
       <div class="flex flex-row justify-end space-x-4">
         {#if requestStatus === "succeeded"}
@@ -112,32 +116,5 @@
 </ContentContainer>
 
 <style>
-  label {
-    @apply block space-y-2;
-  }
-
-  textarea {
-    @apply w-full resize-none p-2 h-40;
-  }
-
-  input {
-    @apply w-full p-2;
-  }
-
-  img.thumbnail {
-    @apply h-48 w-full object-cover lg:h-full;
-    object-position: 85% 25%;
-  }
-
-  @media screen(lg) {
-    form {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    img.thumbnail {
-      grid-column: 2;
-      grid-row: 1;
-    }
-  }
+  @import "./contact.css";
 </style>
