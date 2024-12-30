@@ -18,7 +18,7 @@
   <title>About | Lauren Settembrino</title>
   <meta property="og:site_name" content="Lauren Settembrino" />
   <meta property="og:title" content="About | Lauren Settembrino" />
-  <meta property="og:description" content="Lauren Settembrino is a dancer and choreographer based in New York City." />
+  <meta property="og:description" content="Lauren Settembrino is a dancer and choreographer based in San Francisco." />
   <meta property="og:image" content="https://laurensettembrino.com/img/home-bg-mobile.jpg" />
   <meta property="og:url" content="https://laurensettembrino.com/about/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -77,7 +77,7 @@
     </div>
     <h2>Artist Bio</h2>
     <p>
-      Lauren Settembrino (she/her) is a New York-based dancer and wordsmith. She began her movement journey in central
+      Lauren Settembrino (she/her) is a Bay Area-based dancer and wordsmith. She began her movement journey in central
       New Jersey, competing throughout the Tri-state area and earning accolades including scholarships and a regional
       Top 12 finish in contemporary at Youth America Grand Prix.
     </p>

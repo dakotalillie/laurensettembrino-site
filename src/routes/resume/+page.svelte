@@ -6,7 +6,7 @@
   <title>Resume | Lauren Settembrino</title>
   <meta property="og:site_name" content="Lauren Settembrino" />
   <meta property="og:title" content="Resume | Lauren Settembrino" />
-  <meta property="og:description" content="Lauren Settembrino is a dancer and choreographer based in New York City." />
+  <meta property="og:description" content="Lauren Settembrino is a dancer and choreographer based in San Francisco." />
   <meta property="og:image" content="https://laurensettembrino.com/img/home-bg-mobile.jpg" />
   <meta property="og:url" content="https://laurensettembrino.com/resume/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -25,7 +25,7 @@
     <div class="subheader">
       <span><a href="mailto:lauren.settembrino@gmail.com">lauren.settembrino@gmail.com</a></span>
       <span>she/her</span>
-      <span>New York, NY</span>
+      <span>San Francisco, CA</span>
       <span>5'4"</span>
     </div>
   </div>

@@ -4,7 +4,7 @@ This repository contains the source code for laurensettembrino.com
 
 ## Local Setup
 
-Pull down this repo, run `npm install`, then run `npm run dev`. This will start a local development server on port 3000.
+Pull down this repo, run `npm install`, then run `npm run dev`. This will start a local development server on port 5173.
 
 ## Deploying Updates
 
