@@ -28,8 +28,8 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, subject, message }),
     })
-      .then(() => {
-        requestStatus = "succeeded";
+      .then((req) => {
+        requestStatus = req.ok ? "succeeded" : "failed";
       })
       .catch(() => {
         requestStatus = "failed";
