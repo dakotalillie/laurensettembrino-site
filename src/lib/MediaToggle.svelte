@@ -13,6 +13,8 @@
 </div>
 
 <style>
+  @reference "tailwindcss";
+  
   button {
     @apply py-1 px-2 border border-white md:py-2 md:px-4;
   }

@@ -60,6 +60,8 @@
 </div>
 
 <style>
+  @reference "tailwindcss";
+  
   a[aria-current="page"] {
     @apply border-b-2 border-red-700;
   }

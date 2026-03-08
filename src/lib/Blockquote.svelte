@@ -21,6 +21,8 @@
 </blockquote>
 
 <style>
+  @reference "tailwindcss";
+
   blockquote {
     @apply pl-6 pt-2 pb-2 border-l-4 border-red-700 text-gray-700 leading-6;
   }

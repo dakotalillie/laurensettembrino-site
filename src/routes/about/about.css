@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 button {
   @apply mb-6 sm:float-left sm:mr-6 sm:mb-0;
 }
@@ -23,26 +25,26 @@ img.full {
   max-height: calc(var(--vh, 1vh) * 75);
 }
 
-@media screen(sm) {
+@media (width >= theme(--breakpoint-sm)) {
   img.thumbnail {
     height: 30rem;
     min-height: unset;
   }
 }
 
-@media screen(lg) {
+@media (width >= theme(--breakpoint-lg)) {
   img.thumbnail {
     height: 21rem;
   }
 }
 
-@media screen(xl) {
+@media (width >= theme(--breakpoint-xl)) {
   img.thumbnail {
     height: 26rem;
   }
 }
 
-@media screen(2xl) {
+@media (width >= theme(--breakpoint-2xl)) {
   img.thumbnail {
     height: 30rem;
   }

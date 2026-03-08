@@ -89,6 +89,8 @@
 {/if}
 
 <style>
+  @reference "tailwindcss";
+  
   .modal {
     @apply fixed p-0 top-0 left-0 w-full h-screen flex justify-center items-center bg-transparent opacity-0;
   }
@@ -98,7 +100,7 @@
   }
 
   .backdrop {
-    @apply absolute w-full h-full bg-black bg-opacity-40;
+    @apply absolute w-full h-full bg-black/40;
   }
 
   .content-wrapper {

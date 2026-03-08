@@ -18,6 +18,8 @@
 </header>
 
 <style>
+  @reference "tailwindcss";
+  
   header {
     @apply w-full py-6 px-4 text-white grid;
     grid-template-columns: auto 1fr auto;
@@ -42,7 +44,7 @@
     }
   }
 
-  @media screen(lg) {
+  @media (width >= theme(--breakpoint-lg)) {
     .logo {
       grid-column: 3;
       grid-row: 1;

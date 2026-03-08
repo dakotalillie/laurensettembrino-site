@@ -1,13 +1,15 @@
+@reference "tailwindcss";
+
 label {
   @apply block space-y-2;
 }
 
 textarea {
-  @apply w-full resize-none p-2 h-40;
+  @apply w-full resize-none p-2 h-40 bg-white;
 }
 
 input {
-  @apply w-full p-2;
+  @apply w-full p-2 bg-white;
 }
 
 img.thumbnail {
@@ -15,7 +17,7 @@ img.thumbnail {
   object-position: 85% 25%;
 }
 
-@media screen(lg) {
+@media (width >= theme(--breakpoint-lg)) {
   form {
     grid-column: 1;
     grid-row: 1;

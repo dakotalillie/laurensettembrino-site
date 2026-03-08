@@ -110,6 +110,8 @@
 </div>
 
 <style>
+  @reference "tailwindcss";
+  
   h2 {
     @apply text-3xl font-bold;
   }

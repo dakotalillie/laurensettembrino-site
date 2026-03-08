@@ -7,6 +7,8 @@
 <div class:blurred={isBlurred}></div>
 
 <style>
+  @reference "tailwindcss";
+  
   div {
     @apply h-screen fixed left-0 top-0 w-screen;
     background: transparent no-repeat 30% center;
@@ -26,7 +28,7 @@
     filter: blur(12px);
   }
 
-  @media screen(md) {
+  @media (width >= theme(--breakpoint-md)) {
     :global(.no-webp) div {
       background-image: url("/img/home-bg-tablet.jpg");
     }
@@ -36,7 +38,7 @@
     }
   }
 
-  @media screen(lg) {
+  @media (width >= theme(--breakpoint-lg)) {
     :global(.no-webp) div {
       background-image: url("/img/home-bg-laptop.jpg");
     }
@@ -46,7 +48,7 @@
     }
   }
 
-  @media screen(xl) {
+  @media (width >= theme(--breakpoint-xl)) {
     :global(.no-webp) div,
     :global(.webp) div {
       background-image: url("/img/home-bg.jpg");

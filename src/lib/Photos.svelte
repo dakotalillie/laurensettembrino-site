@@ -3,7 +3,7 @@
   import Modal from "./Modal.svelte";
   import debounce from "./debounce";
 
-  import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+  import "@splidejs/splide/css";
   import IntersectionObserver from "./IntersectionObserver.svelte";
 
   const pictures = [
@@ -234,8 +234,7 @@
 
   function handleClick(open: () => void, index: number) {
     import("@splidejs/splide").then((res) => {
-      // The type seems to be incorrect here
-      Splide = res.default;
+      Splide = res.Splide;
       currentIndex = index;
       open();
     });
@@ -244,8 +243,10 @@
   function handleCarouselResize() {
     tick().then(() => {
       const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper")!);
-      splideInstance.options.fixedWidth =
-        parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2;
+      splideInstance.options = {
+        fixedWidth:
+          parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2,
+      };
     });
   }
 
@@ -253,10 +254,9 @@
     tick().then(() => {
       const contentWrapperStyle = getComputedStyle(document.querySelector(".content-wrapper")!);
       splideInstance = new Splide(carousel, {
-        autoHeight: true,
         fixedWidth: parseFloat(contentWrapperStyle.maxWidth) - parseFloat(contentWrapperStyle.paddingLeft) * 2,
         gap: 0,
-        lazyLoad: "nearby",
+        keyboard: "global",
         padding: 0,
         pagination: false,
         perPage: 1,
@@ -304,7 +304,7 @@
         <div
           bind:this={carousel}
           data-active={currentIndex === 0 ? "first" : currentIndex === pictures.length - 1 ? "last" : undefined}
-          class="relative"
+          class="splide relative"
         >
           <div class="splide__track">
             <div class="splide__list">
@@ -312,12 +312,12 @@
                 <div class="splide__slide flex items-center justify-center bg-black">
                   <figure class="relative">
                     <picture>
-                      <source data-splide-lazy-srcset={`/img/${id}-full.webp`} type="image/webp" />
-                      <source data-splide-lazy-srcset={`/img/${id}-full.jpg`} type="image/jpeg" />
-                      <img class="full" data-splide-lazy={`/img/${id}-full.jpg`} {alt} onload={handleLoadFull} />
+                      <source srcset={`/img/${id}-full.webp`} type="image/webp" />
+                      <source srcset={`/img/${id}-full.jpg`} type="image/jpeg" />
+                      <img class="full" src={`/img/${id}-full.jpg`} {alt} loading="lazy" onload={handleLoadFull} />
                     </picture>
                   </figure>
-                  <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+                  <p class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black/50 w-full">
                     {@html caption}
                   </p>
                 </div>
@@ -331,6 +331,8 @@
 </section>
 
 <style>
+  @reference "tailwindcss";
+  
   section {
     --space: 0.5em;
 

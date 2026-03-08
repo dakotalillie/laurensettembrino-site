@@ -72,7 +72,7 @@
               onload={handleLoad}
             />
           </picture>
-          <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black bg-opacity-50 w-full">
+          <figcaption class="text-xs md:text-sm absolute bottom-0 p-4 text-white bg-black/50 w-full">
             Photo Credit: Meghann Padgett / Angie Moon Dance Theatre rehearsal
           </figcaption>
         </figure>

@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 div {
   @apply flex flex-row justify-center items-end space-x-8 pb-6;
 }
@@ -15,7 +17,7 @@ svg {
   width: 20pt;
 }
 
-@media screen(md) {
+@media (width >= theme(--breakpoint-md)) {
   svg {
     height: 20pt;
     width: 20pt;

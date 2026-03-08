@@ -1,14 +1,16 @@
+@reference "tailwindcss";
+
 svg {
   width: min(100%, 20rem);
 }
 
-@media screen(lg) {
+@media (width >= theme(--breakpoint-lg)) {
   svg {
     width: 30rem;
   }
 }
 
-@media screen(xl) {
+@media (width >= theme(--breakpoint-xl)) {
   svg {
     width: 36rem;
   }
