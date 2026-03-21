@@ -1,0 +1,1 @@
+import{a as e,f as v}from"./VebXKAtK.js";import"./CpcFWmh5.js";var i=v('<div class="spinner svelte-8x1o5o"><div class="bounce1 svelte-8x1o5o"></div> <div class="bounce2 svelte-8x1o5o"></div> <div class="bounce3 svelte-8x1o5o"></div></div>');function n(o){var s=i();e(o,s)}export{n as S};
