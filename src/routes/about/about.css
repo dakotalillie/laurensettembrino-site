@@ -16,10 +16,6 @@ h2 {
   @apply text-2xl font-bold;
 }
 
-a {
-  @apply underline;
-}
-
 img.full {
   max-width: 100%;
   max-height: calc(var(--vh, 1vh) * 75);
